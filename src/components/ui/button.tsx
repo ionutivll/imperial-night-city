@@ -17,6 +17,10 @@ const buttonVariants = cva(
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         hero: "btn-hero rounded-full font-display tracking-wider text-primary-foreground",
+        inverse:
+          "rounded-full bg-background font-display tracking-wider text-foreground transition-transform duration-300 hover:scale-105",
+        inverseOutline:
+          "rounded-full border border-primary-foreground/40 font-display tracking-wider text-primary-foreground transition-colors hover:bg-primary-foreground/10",
         glass:
           "rounded-full border border-primary/40 bg-foreground/5 font-display tracking-wider text-foreground backdrop-blur-md transition-all duration-300 hover:border-primary hover:bg-primary/15 hover:text-primary",
       },

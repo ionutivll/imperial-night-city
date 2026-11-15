@@ -17,10 +17,10 @@ export function FinalCta() {
             Join hundreds of players writing their story in Imperial Romania.
           </p>
           <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
-            <Button size="xl" className="rounded-full bg-background font-display tracking-wider text-foreground hover:scale-105 hover:bg-background transition-transform" asChild>
+            <Button size="xl" variant="inverse" asChild>
               <a href={SERVER_INFO.fivemUrl}>Connect Now</a>
             </Button>
-            <Button size="xl" variant="outline" className="rounded-full border-primary-foreground/40 bg-transparent font-display tracking-wider text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground" asChild>
+            <Button size="xl" variant="inverseOutline" asChild>
               <a href={SERVER_INFO.discordUrl} target="_blank" rel="noreferrer">Join Discord</a>
             </Button>
           </div>

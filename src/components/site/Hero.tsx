@@ -46,7 +46,7 @@ export function Hero() {
       <div className="absolute inset-x-0 bottom-0 h-2/3 bg-fade-bottom" />
       <Embers />
 
-      <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-5 pt-24 text-center">
+      <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-5 pb-28 pt-28 text-center">
         <div ref={logoRef} className="will-change-transform">
           <img
             src={logo.url}

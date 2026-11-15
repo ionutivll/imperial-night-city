@@ -28,3 +28,8 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+- Single landing page at `/` composed from section components in `src/components/site/`; why: one-page server site, sections stay independently editable.
+- Server connect address and Discord link live only in `src/lib/server-info.ts`; why: one place to update them.
+- Scroll-reveal uses the `.reveal` class + `useReveal()` hook, with stagger via a `--delay` CSS variable; why: lightweight animations without an animation library.

@@ -278,3 +278,14 @@
   }
   .reveal { opacity: 1; transform: none; filter: none; }
 }
+
+.animate-glitch {
+  animation: glitch 0.18s steps(2) infinite;
+}
+@keyframes glitch {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-2px, 1px); }
+  50% { transform: translate(2px, -1px); }
+  75% { transform: translate(-1px, -1px); }
+  100% { transform: translate(0, 0); }
+}

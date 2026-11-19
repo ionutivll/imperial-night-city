@@ -1,4 +1,4 @@
-const words = ["Roleplay", "Police", "EMS", "Mafia", "Business", "Custom Cars", "Housing", "Racing", "Economy", "Events"];
+const words = ["Roleplay", "Poliție", "SMURD", "Mafie", "Afaceri", "Mașini custom", "Case", "Curse", "Economie", "Evenimente"];
 
 export function Marquee() {
   const row = [...words, ...words];

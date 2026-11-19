@@ -31,5 +31,5 @@ use the editor.
 
 ## Project rules
 - Single landing page at `/` composed from section components in `src/components/site/`; why: one-page server site, sections stay independently editable.
-- Server connect address and Discord link live only in `src/lib/server-info.ts`; why: one place to update them.
+- Server connect address, Discord link and the open/closed flag (`isOpen`) live only in `src/lib/server-info.ts`; sections branch on `isOpen`; why: one place to flip the site to launch mode.
 - Scroll-reveal uses the `.reveal` class + `useReveal()` hook, with stagger via a `--delay` CSS variable; why: lightweight animations without an animation library.

@@ -6,10 +6,10 @@ import { SERVER_INFO } from "@/lib/server-info";
 import { cn } from "@/lib/utils";
 
 const links = [
-  { href: "#about", label: "About" },
-  { href: "#features", label: "Features" },
-  { href: "#join", label: "How to Join" },
-  { href: "#rules", label: "Rules" },
+  { href: "#about", label: "Despre" },
+  { href: "#features", label: "Ce găsești" },
+  { href: "#join", label: "Cum intri" },
+  { href: "#rules", label: "Reguli" },
 ];
 
 export function Navbar() {
@@ -56,7 +56,7 @@ export function Navbar() {
         <div className="hidden md:block">
           <Button variant="hero" size="lg" asChild>
             <a href={SERVER_INFO.discordUrl} target="_blank" rel="noreferrer">
-              Join Discord
+              Intră pe Discord
             </a>
           </Button>
         </div>
@@ -64,7 +64,7 @@ export function Navbar() {
         <button
           className="text-foreground md:hidden"
           onClick={() => setOpen((o) => !o)}
-          aria-label="Toggle menu"
+          aria-label="Deschide meniul"
         >
           {open ? <X className="size-7" /> : <Menu className="size-7" />}
         </button>
@@ -90,7 +90,7 @@ export function Navbar() {
           ))}
           <Button variant="hero" size="lg" asChild>
             <a href={SERVER_INFO.discordUrl} target="_blank" rel="noreferrer">
-              Join Discord
+              Intră pe Discord
             </a>
           </Button>
         </ul>

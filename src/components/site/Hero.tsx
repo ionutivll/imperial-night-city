@@ -5,6 +5,7 @@ import heroCity from "@/assets/hero-city.jpg";
 import logo from "@/assets/imperial-romania-logo.png.asset.json";
 import { SERVER_INFO } from "@/lib/server-info";
 import { Embers } from "./Embers";
+import { LaunchDate } from "./LaunchDate";
 
 export function Hero() {
   const bgRef = useRef<HTMLDivElement>(null);
@@ -35,7 +36,7 @@ export function Hero() {
       <div ref={bgRef} className="absolute inset-0 scale-110 will-change-transform">
         <img
           src={heroCity}
-          alt="Night city skyline glowing orange"
+          alt="Oraș noaptea, luminat portocaliu"
           width={1920}
           height={1088}
           className="h-full w-full object-cover"
@@ -50,51 +51,77 @@ export function Hero() {
         <div ref={logoRef} className="will-change-transform">
           <img
             src={logo.url}
-            alt="Imperial Romania logo"
-            className="animate-hero-in animate-float mx-auto w-[min(88vw,620px)] drop-shadow-[0_0_40px_var(--color-primary)]"
+            alt="Logo Imperial Romania"
+            className="animate-hero-in animate-float mx-auto w-[min(80vw,520px)] drop-shadow-[0_0_40px_var(--color-primary)]"
           />
         </div>
 
+        {SERVER_INFO.isOpen ? null : (
+          <div className="animate-hero-in mt-6" style={{ "--delay": "200ms" } as React.CSSProperties}>
+            <LaunchDate />
+          </div>
+        )}
+
         <p
-          className="animate-hero-in mt-4 font-display text-2xl tracking-[0.35em] text-primary-glow md:text-3xl"
+          className="animate-hero-in mt-6 font-display text-xl tracking-[0.35em] text-primary-glow md:text-2xl"
           style={{ "--delay": "300ms" } as React.CSSProperties}
         >
           GTA V · FiveM Roleplay
         </p>
         <h1
-          className="animate-hero-in mt-3 font-display text-5xl leading-none md:text-7xl"
+          className="animate-hero-in mt-2 font-display text-5xl leading-none md:text-7xl"
           style={{ "--delay": "450ms" } as React.CSSProperties}
         >
-          Your story. <span className="text-fire">Your empire.</span>
+          {SERVER_INFO.isOpen ? (
+            <>
+              Orașul e <span className="text-fire">deschis.</span>
+            </>
+          ) : (
+            <>
+              Lucrăm la oraș. <span className="text-fire">Vine curând.</span>
+            </>
+          )}
         </h1>
         <p
           className="animate-hero-in mt-5 max-w-xl text-lg text-foreground/75"
           style={{ "--delay": "600ms" } as React.CSSProperties}
         >
-          Romania's most immersive roleplay city. Build a business, wear the badge, or rule the
-          streets — every choice writes history.
+          Un server de RP făcut de băieți care chiar joacă RP. Fără pay to win, fără staff care
+          abuzează. Intră pe Discord ca să prinzi lansarea și să-ți faci whitelist-ul din timp.
         </p>
 
         <div
           className="animate-hero-in mt-9 flex flex-col gap-4 sm:flex-row"
           style={{ "--delay": "750ms" } as React.CSSProperties}
         >
-          <Button variant="hero" size="xl" asChild>
-            <a href={SERVER_INFO.fivemUrl}>
-              <Play className="fill-current" /> Play Now
-            </a>
-          </Button>
+          {SERVER_INFO.isOpen ? (
+            <Button variant="hero" size="xl" asChild>
+              <a href={SERVER_INFO.fivemUrl}>
+                <Play className="fill-current" /> Joacă acum
+              </a>
+            </Button>
+          ) : (
+            <Button variant="hero" size="xl" asChild>
+              <a href={SERVER_INFO.discordUrl} target="_blank" rel="noreferrer">
+                Intră pe Discord
+              </a>
+            </Button>
+          )}
           <Button variant="glass" size="xl" asChild>
-            <a href={SERVER_INFO.discordUrl} target="_blank" rel="noreferrer">
-              Join the Discord
-            </a>
+            {SERVER_INFO.isOpen ? (
+              <a href={SERVER_INFO.discordUrl} target="_blank" rel="noreferrer">
+                Intră pe Discord
+              </a>
+            ) : (
+              <a href="#features">Vezi ce găsești</a>
+            )}
           </Button>
         </div>
       </div>
 
       <a
         href="#about"
-        aria-label="Scroll down"
+        aria-label="Mai jos"
         className="absolute bottom-8 left-1/2 z-10 flex h-11 w-7 -translate-x-1/2 justify-center rounded-full border-2 border-primary/60 pt-2"
       >
         <span className="animate-scroll-dot h-2 w-1 rounded-full bg-primary" />

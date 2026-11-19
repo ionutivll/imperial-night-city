@@ -1,20 +1,20 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const rules = [
-  { title: "Stay in character", text: "Roleplay comes first. Out-of-character talk belongs in Discord or /ooc, not in the middle of a scene." },
-  { title: "No RDM / VDM", text: "Never kill or run over players without a valid roleplay reason. Every conflict needs a story behind it." },
-  { title: "Value your life", text: "Act as if your character has one life. Fear weapons, respect threats and don't take reckless risks." },
-  { title: "No metagaming", text: "Information you learn outside the game (streams, Discord) can't be used in character." },
-  { title: "Respect everyone", text: "Zero tolerance for toxicity, harassment or discrimination — in game and in our community." },
+  { title: "Rămâi în caracter", text: "RP-ul e pe primul loc. Chestiile OOC le zici pe Discord sau pe /ooc, nu în mijlocul scenei." },
+  { title: "Fără RDM / VDM", text: "Nu omori și nu calci oameni cu mașina fără motiv de RP. Orice conflict are nevoie de o poveste în spate." },
+  { title: "Ține la viața ta", text: "Joacă de parcă ai o singură viață. Dacă ai o armă la cap, nu faci pe eroul." },
+  { title: "Fără metagaming", text: "Ce afli de pe stream sau de pe Discord nu folosești în joc. Simplu." },
+  { title: "Respect", text: "Fără toxicitate, hărțuire sau rasism. Nici în joc, nici pe Discord." },
 ];
 
 export function Rules() {
   return (
     <section id="rules" className="relative mx-auto max-w-4xl px-5 py-28">
       <div className="text-center">
-        <p className="reveal font-display text-xl tracking-[0.3em] text-primary">Keep it real</p>
+        <p className="reveal font-display text-xl tracking-[0.3em] text-primary">Ca să ne înțelegem</p>
         <h2 className="reveal mt-3 font-display text-5xl md:text-7xl" style={{ "--delay": "100ms" } as React.CSSProperties}>
-          Core <span className="text-fire">rules</span>
+          Regulile <span className="text-fire">de bază</span>
         </h2>
       </div>
       <Accordion type="single" collapsible className="mt-12 space-y-4">
@@ -36,7 +36,7 @@ export function Rules() {
         ))}
       </Accordion>
       <p className="reveal mt-8 text-center text-muted-foreground">
-        The full rulebook lives on our Discord — read it before you connect.
+        Regulamentul complet e pe Discord. Citește-l înainte să intri, serios.
       </p>
     </section>
   );

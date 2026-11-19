@@ -12,16 +12,16 @@ import { useReveal } from "@/hooks/use-reveal";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Imperial Romania — GTA V FiveM Roleplay Server" },
+      { title: "Imperial Romania | Server FiveM Roleplay GTA V" },
       {
         name: "description",
         content:
-          "Join Imperial Romania, an immersive GTA V FiveM roleplay server. Police, EMS, gangs, businesses and a living economy.",
+          "Imperial Romania, server românesc de FiveM roleplay pe GTA V. Poliție, SMURD, mafii, afaceri. Lansăm în curând, intră pe Discord.",
       },
-      { property: "og:title", content: "Imperial Romania — GTA V FiveM Roleplay" },
+      { property: "og:title", content: "Imperial Romania | FiveM Roleplay" },
       {
         property: "og:description",
-        content: "Your story. Your empire. Join Romania's most immersive FiveM roleplay city.",
+        content: "Server românesc de RP pe GTA V. Lansăm în curând, intră pe Discord să prinzi deschiderea.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

@@ -4,18 +4,18 @@ import gangs from "@/assets/feature-gangs.jpg";
 import business from "@/assets/feature-business.jpg";
 
 const showcase = [
-  { img: police, tag: "Law & Order", title: "Police & EMS", text: "Wear the badge or save lives. Full departments with ranks, training and real dispatch." },
-  { img: gangs, tag: "Underworld", title: "Gangs & Mafia", text: "Claim turf, run operations and build a criminal legacy the whole city fears." },
-  { img: business, tag: "Economy", title: "Business Empire", text: "Own dealerships, clubs and garages. A balanced economy where hustle pays off." },
+  { img: police, tag: "Lege", title: "Poliție & SMURD", text: "Intri în poliție sau la SMURD, faci training, urci în grad. Dispecerat pe bune, nu doar sirene." },
+  { img: gangs, tag: "Underground", title: "Mafie & Găști", text: "Îți faci gașca, iei teritoriu, faci bani murdari. Doar ai grijă cine te vinde." },
+  { img: business, tag: "Economie", title: "Afaceri", text: "Deschizi dealer auto, club sau service. Economia e făcută să nu se strice după o săptămână." },
 ];
 
 const extras = [
-  { icon: Car, title: "Custom Vehicles", text: "Hundreds of hand-picked cars, fully tunable." },
-  { icon: Home, title: "Housing", text: "Buy, furnish and live in your own property." },
-  { icon: Mic, title: "Proximity Voice", text: "Crystal-clear in-game voice and radios." },
-  { icon: Briefcase, title: "Unique Jobs", text: "From trucker to lawyer — dozens of careers." },
-  { icon: Trophy, title: "Weekly Events", text: "Races, heists and community nights." },
-  { icon: Shield, title: "Active Staff", text: "Fair moderation and quick support." },
+  { icon: Car, title: "Mașini custom", text: "Sute de mașini alese de noi, le tunezi cum vrei." },
+  { icon: Home, title: "Case", text: "Îți iei casă, o mobilezi și o faci a ta." },
+  { icon: Mic, title: "Voce în joc", text: "Vorbești pe proximitate, plus stații radio." },
+  { icon: Briefcase, title: "Joburi", text: "De la tirist la avocat, ai de unde alege." },
+  { icon: Trophy, title: "Evenimente", text: "Curse, jafuri și seri cu toată comunitatea, săptămânal." },
+  { icon: Shield, title: "Staff ok", text: "Staff care chiar te ajută, nu te ignoră pe ticket." },
 ];
 
 export function Features() {
@@ -24,9 +24,9 @@ export function Features() {
       <div className="pointer-events-none absolute -top-40 left-1/2 h-[500px] w-[900px] -translate-x-1/2 rounded-full bg-radial-glow blur-3xl" />
       <div className="relative mx-auto max-w-7xl px-5">
         <div className="text-center">
-          <p className="reveal font-display text-xl tracking-[0.3em] text-primary">Choose your path</p>
+          <p className="reveal font-display text-xl tracking-[0.3em] text-primary">Ce găsești pe server</p>
           <h2 className="reveal mt-3 font-display text-5xl md:text-7xl" style={{ "--delay": "100ms" } as React.CSSProperties}>
-            Live the <span className="text-fire">life you want</span>
+            Fă ce vrei. <span className="text-fire">Pe bune.</span>
           </h2>
         </div>
 

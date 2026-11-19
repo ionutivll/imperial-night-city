@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 
 const stats = [
-  { value: 24, suffix: "/7", label: "Server online" },
-  { value: 150, suffix: "+", label: "Custom scripts" },
-  { value: 40, suffix: "+", label: "Legal & illegal jobs" },
-  { value: 300, suffix: "+", label: "Custom vehicles" },
+  { value: 24, suffix: "/7", label: "Online după lansare" },
+  { value: 150, suffix: "+", label: "Scripturi custom" },
+  { value: 40, suffix: "+", label: "Joburi legale și ilegale" },
+  { value: 300, suffix: "+", label: "Mașini custom" },
 ];
 
 function Counter({ to, suffix }: { to: number; suffix: string }) {
@@ -41,15 +41,16 @@ export function About() {
     <section id="about" className="relative mx-auto max-w-7xl px-5 py-28">
       <div className="grid items-center gap-16 lg:grid-cols-2">
         <div>
-          <p className="reveal font-display text-xl tracking-[0.3em] text-primary">Welcome to the city</p>
+          <p className="reveal font-display text-xl tracking-[0.3em] text-primary">Despre noi</p>
           <h2 className="reveal mt-3 font-display text-5xl leading-[0.95] md:text-7xl" style={{ "--delay": "100ms" } as React.CSSProperties}>
-            More than a server. <br />
-            <span className="text-fire">A living empire.</span>
+            Nu e încă un server <br />
+            <span className="text-fire">copy-paste.</span>
           </h2>
           <p className="reveal mt-6 text-lg leading-relaxed text-muted-foreground" style={{ "--delay": "200ms" } as React.CSSProperties}>
-            Imperial Romania is a serious roleplay community built by players, for players. A
-            hand-crafted economy, custom jobs and an active staff team keep every shift, deal and
-            chase feeling real — whether you're new to RP or a veteran of the streets.
+            Am jucat pe o grămadă de servere românești și ne-am săturat de aceleași scripturi luate
+            de pe net, de staff care te banează că i-ai zis ceva și de economii stricate din prima
+            săptămână. Așa că ne facem noi serverul, cum ni l-am fi dorit. Lucrăm la el de ceva
+            vreme și mai e puțin.
           </p>
         </div>
 

@@ -3,12 +3,12 @@ const words = ["Roleplay", "Poliție", "SMURD", "Mafie", "Afaceri", "Mașini cus
 export function Marquee() {
   const row = [...words, ...words];
   return (
-    <div className="relative -rotate-1 overflow-hidden border-y border-primary/30 bg-fire py-4 shadow-glow">
+    <div className="glass relative -rotate-1 overflow-hidden border-x-0 py-4">
       <div className="animate-marquee flex w-max gap-10 whitespace-nowrap">
         {row.map((w, i) => (
-          <span key={i} className="flex items-center gap-10 font-display text-3xl tracking-wider text-primary-foreground">
+          <span key={i} className="flex items-center gap-10 font-display text-3xl tracking-wider text-foreground/85">
             {w}
-            <span className="text-primary-foreground/50">✦</span>
+            <span className="text-fire">✦</span>
           </span>
         ))}
       </div>

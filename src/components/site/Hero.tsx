@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroCity from "@/assets/hero-city.jpg";
+import heroSunset from "@/assets/hero-sunset.jpg";
 import logo from "@/assets/imperial-romania-logo.png.asset.json";
 import { SERVER_INFO } from "@/lib/server-info";
 import { Embers } from "./Embers";
@@ -35,24 +35,25 @@ export function Hero() {
     <section id="top" className="grain relative flex min-h-screen items-center justify-center overflow-hidden">
       <div ref={bgRef} className="absolute inset-0 scale-110 will-change-transform">
         <img
-          src={heroCity}
-          alt="Oraș noaptea, luminat portocaliu"
-          width={1920}
-          height={1088}
-          className="h-full w-full object-cover"
+          src={heroSunset}
+          alt="Oraș cu palmieri la apus"
+          width={1672}
+          height={941}
+          className="h-full w-full object-cover blur-[3px] saturate-[0.85]"
         />
       </div>
-      <div className="absolute inset-0 bg-background/45" />
-      <div className="absolute inset-0 bg-radial-glow animate-glow-pulse" />
+      <div className="absolute inset-0 bg-background/60 backdrop-blur-[2px]" />
+      <div className="absolute inset-0 bg-fade-top" />
+      <div className="absolute inset-0 bg-radial-glow" />
       <div className="absolute inset-x-0 bottom-0 h-2/3 bg-fade-bottom" />
-      <Embers />
+      <Embers count={18} />
 
-      <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-5 pb-28 pt-28 text-center">
+      <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-5 pb-28 pt-32 text-center">
         <div ref={logoRef} className="will-change-transform">
           <img
             src={logo.url}
             alt="Logo Imperial Romania"
-            className="animate-hero-in animate-float mx-auto w-[min(80vw,520px)] drop-shadow-[0_0_40px_var(--color-primary)]"
+            className="animate-hero-in animate-float mx-auto w-[min(80vw,500px)] drop-shadow-[0_10px_40px_oklch(0_0_0/0.6)]"
           />
         </div>
 

@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Navbar } from "@/components/site/Navbar";
+import { SiteShell } from "@/components/site/SiteShell";
 import { Hero } from "@/components/site/Hero";
 import { Marquee } from "@/components/site/Marquee";
 import { About } from "@/components/site/About";
@@ -7,7 +7,6 @@ import { Features } from "@/components/site/Features";
 import { HowToJoin } from "@/components/site/HowToJoin";
 import { Rules } from "@/components/site/Rules";
 import { FinalCta } from "@/components/site/FinalCta";
-import { useReveal } from "@/hooks/use-reveal";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -31,10 +30,8 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
-  useReveal();
   return (
-    <main className="relative overflow-x-clip">
-      <Navbar />
+    <SiteShell>
       <Hero />
       <Marquee />
       <About />
@@ -42,6 +39,6 @@ function Index() {
       <HowToJoin />
       <Rules />
       <FinalCta />
-    </main>
+    </SiteShell>
   );
 }

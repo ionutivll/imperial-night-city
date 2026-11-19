@@ -30,6 +30,7 @@ use the editor.
 <!-- LOVABLE:END -->
 
 ## Project rules
-- Single landing page at `/` composed from section components in `src/components/site/`; why: one-page server site, sections stay independently editable.
+- Pages are TanStack routes (`/`, `/regulament`, `/wiki`) wrapped in `SiteShell` (menu, footer, blurred background, scroll-reveal); homepage sections live in `src/components/site/`; why: shared frame, sections stay independently editable.
+- Rules text lives in `src/lib/rules.ts` and wiki categories in `src/lib/wiki.ts`; why: content updates without touching layout.
 - Server connect address, Discord link and the open/closed flag (`isOpen`) live only in `src/lib/server-info.ts`; sections branch on `isOpen`; why: one place to flip the site to launch mode.
 - Scroll-reveal uses the `.reveal` class + `useReveal()` hook, with stagger via a `--delay` CSS variable; why: lightweight animations without an animation library.

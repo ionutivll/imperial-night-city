@@ -52,7 +52,7 @@ export function Features() {
                   {f.tag}
                 </span>
                 <h3 className="mt-3 font-display text-4xl">{f.title}</h3>
-                <p className="mt-2 max-h-0 overflow-hidden text-foreground/80 opacity-0 transition-all duration-500 group-hover:max-h-32 group-hover:opacity-100">
+                <p className="mt-2 max-h-32 overflow-hidden text-foreground/80 opacity-100 transition-all duration-500 md:max-h-0 md:opacity-0 md:group-hover:max-h-32 md:group-hover:opacity-100">
                   {f.text}
                 </p>
               </div>

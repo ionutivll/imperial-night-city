@@ -9,7 +9,7 @@ function Tile({ char, secret, glitching }: { char: string; secret?: boolean; gli
   return (
     <span
       className={cn(
-        "border-fire relative grid h-14 w-10 place-items-center overflow-hidden rounded-lg bg-card/80 font-display text-4xl backdrop-blur-md md:h-16 md:w-12 md:text-5xl",
+        "border-fire relative grid h-11 w-8 place-items-center overflow-hidden rounded-md bg-card/80 font-display text-3xl backdrop-blur-md sm:h-14 sm:w-10 sm:rounded-lg sm:text-4xl md:h-16 md:w-12 md:text-5xl",
         secret ? "text-fire shadow-glow" : "text-foreground",
         glitching && "animate-glitch",
       )}
@@ -21,7 +21,7 @@ function Tile({ char, secret, glitching }: { char: string; secret?: boolean; gli
 }
 
 function Dot() {
-  return <span className="mx-0.5 self-end pb-2 font-display text-4xl text-primary md:text-5xl">.</span>;
+  return <span className="self-end pb-1 font-display text-3xl text-primary sm:mx-0.5 sm:pb-2 sm:text-4xl md:text-5xl">.</span>;
 }
 
 export function LaunchDate({ className }: { className?: string }) {
@@ -34,7 +34,10 @@ export function LaunchDate({ className }: { className?: string }) {
     const burst = () => {
       setGlitching(true);
       flicker = setInterval(() => {
-        setDay([String(Math.floor(Math.random() * 4)), String(Math.floor(Math.random() * 10))]);
+        // Random noise, never the real day.
+        let d = "01";
+        while (d === "01") d = `${Math.floor(Math.random() * 4)}${Math.floor(Math.random() * 10)}`;
+        setDay([d[0]!, d[1]!]);
       }, 60);
       stop = setTimeout(() => {
         clearInterval(flicker);
@@ -61,7 +64,7 @@ export function LaunchDate({ className }: { className?: string }) {
         </span>
         Lansare oficială
       </span>
-      <div className="flex items-center gap-1.5" aria-label={`Lansare: ziua secretă, luna ${MONTH}, ${YEAR}`}>
+      <div className="flex items-center gap-1 sm:gap-1.5" aria-label={`Lansare: ziua secretă, luna ${MONTH}, ${YEAR}`}>
         <Tile char={day[0]!} secret glitching={glitching} />
         <Tile char={day[1]!} secret glitching={glitching} />
         <Dot />

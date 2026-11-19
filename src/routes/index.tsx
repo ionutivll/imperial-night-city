@@ -33,7 +33,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   useReveal();
   return (
-    <main className="relative">
+    <main className="relative overflow-x-clip">
       <Navbar />
       <Hero />
       <Marquee />

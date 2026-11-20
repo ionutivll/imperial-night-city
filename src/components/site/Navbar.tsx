@@ -6,12 +6,11 @@ import { SERVER_INFO } from "@/lib/server-info";
 import { cn } from "@/lib/utils";
 import { SideMenu } from "./SideMenu";
 
-type NavItem = { label: string; to: "/" | "/regulament" | "/wiki"; hash?: string };
+type NavItem = { label: string; to: "/" | "/regulament"; hash?: string };
 
 const links: NavItem[] = [
   { label: "About", to: "/", hash: "about" },
   { label: "Regulament", to: "/regulament" },
-  { label: "Wiki", to: "/wiki" },
 ];
 
 /** Two-line "burger" that opens the side menu. */

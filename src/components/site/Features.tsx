@@ -1,78 +1,113 @@
-import { Car, Home, Mic, Briefcase, Trophy, Shield } from "lucide-react";
+import type { CSSProperties } from "react";
+import { ArrowUpRight, Briefcase, Car, Home, Mic, Shield, Trophy } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import police from "@/assets/feature-police.jpg";
 import gangs from "@/assets/feature-gangs.jpg";
 import business from "@/assets/feature-business.jpg";
 
 const showcase = [
-  { img: police, tag: "Lege", title: "Poliție & SMURD", text: "Intri în poliție sau la SMURD, faci training, urci în grad. Dispecerat pe bune, nu doar sirene." },
-  { img: gangs, tag: "Underground", title: "Mafie & Găști", text: "Îți faci gașca, iei teritoriu, faci bani murdari. Doar ai grijă cine te vinde." },
-  { img: business, tag: "Economie", title: "Afaceri", text: "Deschizi dealer auto, club sau service. Economia e făcută să nu se strice după o săptămână." },
+  {
+    image: police,
+    tag: "Facțiuni legale",
+    title: "Poliție & SMURD",
+    text: "Intri în poliție sau la SMURD, faci training și urci în grad. Dispecerat, intervenții și ture care nu se repetă la fel.",
+    slug: "politie-smurd",
+  },
+  {
+    image: gangs,
+    tag: "Underground",
+    title: "Mafii & găști",
+    text: "Îți faci gașca, îți construiești numele și intri în lumea ilegală. Fiecare alianță și fiecare greșeală are consecințe.",
+    slug: "mafii",
+  },
+  {
+    image: business,
+    tag: "Economie",
+    title: "Afaceri & proprietăți",
+    text: "De la primul job la propriul business, alegi cât de departe ajungi. Banii se fac prin joc, nu prin scurtături.",
+    slug: "afaceri",
+  },
 ];
 
 const extras = [
-  { icon: Car, title: "Mașini custom", text: "Sute de mașini alese de noi, le tunezi cum vrei." },
-  { icon: Home, title: "Case", text: "Îți iei casă, o mobilezi și o faci a ta." },
-  { icon: Mic, title: "Voce în joc", text: "Vorbești pe proximitate, plus stații radio." },
-  { icon: Briefcase, title: "Joburi", text: "De la tirist la avocat, ai de unde alege." },
-  { icon: Trophy, title: "Evenimente", text: "Curse, jafuri și seri cu toată comunitatea, săptămânal." },
-  { icon: Shield, title: "Staff ok", text: "Staff care chiar te ajută, nu te ignoră pe ticket." },
+  { icon: Car, title: "Mașini custom", text: "Îți alegi mașina și o modifici să fie a ta." },
+  { icon: Home, title: "Case", text: "Un loc al tău, nu doar un punct pe hartă." },
+  { icon: Mic, title: "Voce în joc", text: "Vorbești cu oamenii din jur, natural." },
+  { icon: Briefcase, title: "Joburi", text: "Legal sau riscant, tu îți alegi drumul." },
+  { icon: Trophy, title: "Evenimente", text: "Seri și activități cu toată comunitatea." },
+  { icon: Shield, title: "Staff prezent", text: "Deschizi un ticket și vorbești cu un om." },
 ];
 
 export function Features() {
   return (
-    <section id="features" className="relative overflow-hidden py-28">
-      <div className="pointer-events-none absolute -top-40 left-1/2 h-[500px] w-[900px] -translate-x-1/2 rounded-full bg-radial-glow blur-3xl" />
+    <section id="features" className="relative overflow-hidden py-24 md:py-32">
+      <div className="pointer-events-none absolute left-1/2 top-20 h-[420px] w-[800px] -translate-x-1/2 rounded-full bg-radial-glow blur-3xl" />
       <div className="relative mx-auto max-w-7xl px-5">
-        <div className="text-center">
-          <p className="reveal font-display text-xl tracking-[0.3em] text-primary">Ce găsești pe server</p>
-          <h2 className="reveal mt-3 font-display text-5xl md:text-7xl" style={{ "--delay": "100ms" } as React.CSSProperties}>
-            Fă ce vrei. <span className="text-fire">Pe bune.</span>
-          </h2>
+        <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
+          <div>
+            <p className="reveal font-display text-lg tracking-[0.35em] text-primary-glow">Ce găsești în oraș</p>
+            <h2
+              className="reveal mt-4 font-display text-5xl leading-[0.95] md:text-7xl"
+              style={{ "--delay": "100ms" } as CSSProperties}
+            >
+              O poveste nu e de ajuns. <span className="text-vice">Fă-ți trei.</span>
+            </h2>
+          </div>
+          <p className="reveal max-w-sm text-lg text-muted-foreground" style={{ "--delay": "180ms" } as CSSProperties}>
+            Poți fi cine vrei. Mai jos ai doar câteva locuri de unde poți începe.
+          </p>
         </div>
 
-        <div className="mt-16 grid gap-6 md:grid-cols-3">
-          {showcase.map((f, i) => (
+        <div className="mt-14 grid gap-6 md:grid-cols-3">
+          {showcase.map((feature, index) => (
             <article
-              key={f.title}
-              className="reveal group relative aspect-[4/5] overflow-hidden rounded-3xl shadow-card"
-              style={{ "--delay": `${i * 150}ms` } as React.CSSProperties}
+              key={feature.title}
+              className="reveal liquid-glass group overflow-hidden rounded-[2rem] bg-card/35"
+              style={{ "--delay": `${index * 120}ms` } as CSSProperties}
             >
-              <img
-                src={f.img}
-                alt={f.title}
-                loading="lazy"
-                width={1024}
-                height={1280}
-                className="h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-              <div className="absolute inset-0 bg-fire opacity-0 mix-blend-overlay transition-opacity duration-700 group-hover:opacity-40" />
-              <div className="absolute inset-x-0 bottom-0 p-7 transition-transform duration-500 group-hover:-translate-y-2">
-                <span className="inline-block rounded-full bg-fire px-3 py-1 font-display text-sm tracking-widest text-primary-foreground">
-                  {f.tag}
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <img
+                  src={feature.image}
+                  alt={feature.title}
+                  loading="lazy"
+                  width={1024}
+                  height={1280}
+                  className="h-full w-full object-cover object-center transition-transform duration-[1200ms] ease-out group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
+                <span className="liquid-glass absolute left-5 top-5 rounded-full px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.18em]">
+                  {feature.tag}
                 </span>
-                <h3 className="mt-3 font-display text-4xl">{f.title}</h3>
-                <p className="mt-2 max-h-32 overflow-hidden text-foreground/80 opacity-100 transition-all duration-500 md:max-h-0 md:opacity-0 md:group-hover:max-h-32 md:group-hover:opacity-100">
-                  {f.text}
-                </p>
+                <span className="absolute bottom-4 right-5 font-display text-5xl text-foreground/80">0{index + 1}</span>
+              </div>
+              <div className="p-6 md:p-7">
+                <h3 className="font-display text-4xl">{feature.title}</h3>
+                <p className="mt-3 min-h-20 leading-relaxed text-muted-foreground">{feature.text}</p>
+                <Link
+                  to="/wiki/$slug"
+                  params={{ slug: feature.slug }}
+                  className="mt-5 inline-flex items-center gap-2 font-display text-xl tracking-wide text-primary-glow transition-colors hover:text-foreground"
+                >
+                  Detalii în wiki <ArrowUpRight className="size-4" />
+                </Link>
               </div>
             </article>
           ))}
         </div>
 
-        <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {extras.map((e, i) => (
+        <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {extras.map((extra, index) => (
             <div
-              key={e.title}
-              className="reveal border-fire group flex gap-5 rounded-2xl bg-card/70 p-6 backdrop-blur transition-all duration-500 hover:-translate-y-1 hover:bg-accent"
-              style={{ "--delay": `${(i % 3) * 100}ms` } as React.CSSProperties}
+              key={extra.title}
+              className="reveal group flex items-center gap-4 rounded-2xl border border-border bg-card/35 p-5 backdrop-blur-xl transition-colors duration-300 hover:bg-card/60"
+              style={{ "--delay": `${(index % 3) * 80}ms` } as CSSProperties}
             >
-              <div className="grid size-14 shrink-0 place-items-center rounded-xl bg-fire text-primary-foreground shadow-glow transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110">
-                <e.icon className="size-7" />
-              </div>
+              <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-foreground/[0.07] text-primary-glow transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-105">
+                <extra.icon className="size-5" />
+              </span>
               <div>
-                <h3 className="font-display text-2xl tracking-wide">{e.title}</h3>
-                <p className="text-muted-foreground">{e.text}</p>
+                <h3 className="font-display text-2xl tracking-wide">{extra.title}</h3>
+                <p className="text-sm text-muted-foreground">{extra.text}</p>
               </div>
             </div>
           ))}

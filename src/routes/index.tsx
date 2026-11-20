@@ -3,9 +3,10 @@ import { SiteShell } from "@/components/site/SiteShell";
 import { Hero } from "@/components/site/Hero";
 import { Marquee } from "@/components/site/Marquee";
 import { About } from "@/components/site/About";
+import { StoryPaths } from "@/components/site/StoryPaths";
 import { Features } from "@/components/site/Features";
 import { HowToJoin } from "@/components/site/HowToJoin";
-import { Rules } from "@/components/site/Rules";
+import { Faq } from "@/components/site/Faq";
 import { FinalCta } from "@/components/site/FinalCta";
 
 export const Route = createFileRoute("/")({
@@ -33,12 +34,13 @@ function Index() {
   return (
     <SiteShell>
       <Hero />
-      <Marquee />
       <About />
+      <StoryPaths />
       <Features />
       <HowToJoin />
-      <Rules />
+      <Faq />
       <FinalCta />
+      <Marquee />
     </SiteShell>
   );
 }

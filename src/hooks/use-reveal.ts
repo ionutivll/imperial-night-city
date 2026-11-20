@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
-/** Adds `is-visible` to every `.reveal` element as it scrolls into view. */
-export function useReveal() {
+/** Adds `is-visible` to every `.reveal` element as it scrolls into view. Re-scans when `key` changes (new page). */
+export function useReveal(key?: string) {
   useEffect(() => {
     const els = document.querySelectorAll<HTMLElement>(".reveal:not(.is-visible)");
     const io = new IntersectionObserver(
@@ -17,5 +17,5 @@ export function useReveal() {
     );
     els.forEach((el) => io.observe(el));
     return () => io.disconnect();
-  }, []);
+  }, [key]);
 }

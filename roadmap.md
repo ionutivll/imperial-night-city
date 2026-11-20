@@ -5,5 +5,7 @@
 - [x] Top menu: About / Regulament / Wiki
 - [x] Wiki page with categories + Regulament page (basic rules for now)
 - [x] GTA 6 look: orange + pink/violet sunset, softer blurred background
+- [x] Side menu (Wiki, Regulament with sections, Shop) + liquid glass look
 - [ ] Full regulament text (waiting on the staff to send it)
 - [ ] Wiki content per category (waiting on details from the user)
+- [ ] Shop items and prices (waiting on details from the user)

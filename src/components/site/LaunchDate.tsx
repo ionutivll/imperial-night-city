@@ -5,23 +5,25 @@ import { cn } from "@/lib/utils";
 const MONTH = "12";
 const YEAR = "2026";
 
-function Tile({ char, secret, glitching }: { char: string; secret?: boolean; glitching?: boolean }) {
+function Tile({ char, secret, glitching, i = 0 }: { char: string; secret?: boolean; glitching?: boolean; i?: number }) {
   return (
     <span
+      style={{ "--shine-delay": `${i * 0.08}s` } as React.CSSProperties}
       className={cn(
-        "border-fire relative grid h-11 w-8 place-items-center overflow-hidden rounded-md bg-card/80 font-display text-3xl backdrop-blur-md sm:h-14 sm:w-10 sm:rounded-lg sm:text-4xl md:h-16 md:w-12 md:text-5xl",
-        secret ? "text-fire shadow-glow" : "text-foreground",
+        "liquid-glass shine relative grid h-11 w-8 place-items-center overflow-hidden rounded-lg bg-background/30 font-display text-3xl sm:h-14 sm:w-10 sm:rounded-xl sm:text-4xl md:h-16 md:w-12 md:text-5xl",
+        secret ? "shadow-glow" : "text-foreground",
         glitching && "animate-glitch",
       )}
     >
-      <span className="pointer-events-none absolute inset-x-0 top-1/2 h-px bg-background/60" />
-      {char}
+      <span className="pointer-events-none absolute inset-x-0 top-1/2 h-px bg-background/50" />
+      <span className="pointer-events-none absolute inset-x-1 top-1 h-1/3 rounded-t-md bg-gradient-to-b from-foreground/15 to-transparent" />
+      <span className={cn("relative", secret && "text-vice")}>{char}</span>
     </span>
   );
 }
 
 function Dot() {
-  return <span className="self-end pb-1 font-display text-3xl text-primary sm:mx-0.5 sm:pb-2 sm:text-4xl md:text-5xl">.</span>;
+  return <span className="self-end pb-1 font-display text-3xl text-pink sm:mx-0.5 sm:pb-2 sm:text-4xl md:text-5xl">.</span>;
 }
 
 export function LaunchDate({ className }: { className?: string }) {
@@ -65,15 +67,15 @@ export function LaunchDate({ className }: { className?: string }) {
         Lansare oficială
       </span>
       <div className="flex items-center gap-1 sm:gap-1.5" aria-label={`Lansare: ziua secretă, luna ${MONTH}, ${YEAR}`}>
-        <Tile char={day[0]!} secret glitching={glitching} />
-        <Tile char={day[1]!} secret glitching={glitching} />
+        <Tile i={0} char={day[0]!} secret glitching={glitching} />
+        <Tile i={1} char={day[1]!} secret glitching={glitching} />
         <Dot />
         {MONTH.split("").map((c, i) => (
-          <Tile key={`m${i}`} char={c} />
+          <Tile key={`m${i}`} i={i + 2} char={c} />
         ))}
         <Dot />
         {YEAR.split("").map((c, i) => (
-          <Tile key={`y${i}`} char={c} />
+          <Tile key={`y${i}`} i={i + 4} char={c} />
         ))}
       </div>
       <span className="text-sm text-muted-foreground">Ziua exactă? O aflați pe Discord.</span>

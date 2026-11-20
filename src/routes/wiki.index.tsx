@@ -1,12 +1,12 @@
 import { useMemo, useState } from "react";
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight, Search } from "lucide-react";
+import { createFileRoute } from "@tanstack/react-router";
+import { Search } from "lucide-react";
 import { SiteShell } from "@/components/site/SiteShell";
 import { PageHeader } from "@/components/site/PageHeader";
-import { WIKI_CATEGORIES, type WikiCategory } from "@/lib/wiki";
-import { cn } from "@/lib/utils";
+import { WikiCard } from "@/components/site/WikiCard";
+import { WIKI_CATEGORIES } from "@/lib/wiki";
 
-export const Route = createFileRoute("/wiki")({
+export const Route = createFileRoute("/wiki/")({
   head: () => ({
     meta: [
       { title: "Wiki | Imperial Romania FiveM RP" },
@@ -19,51 +19,6 @@ export const Route = createFileRoute("/wiki")({
   }),
   component: WikiPage,
 });
-
-const STATUS_LABEL: Record<WikiCategory["status"], string> = {
-  ready: "Gata",
-  writing: "Se scrie acum",
-  soon: "În curând",
-};
-
-function CategoryCard({ c, i }: { c: WikiCategory; i: number }) {
-  const inner = (
-    <>
-      <div className="flex items-start justify-between gap-4">
-        <div className="grid size-14 place-items-center rounded-xl bg-fire text-primary-foreground shadow-glow transition-transform duration-500 group-hover:-rotate-6 group-hover:scale-110">
-          <c.icon className="size-7" />
-        </div>
-        <span
-          className={cn(
-            "rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-widest",
-            c.status === "soon" ? "bg-foreground/5 text-muted-foreground" : "bg-primary/15 text-primary-glow",
-          )}
-        >
-          {STATUS_LABEL[c.status]}
-        </span>
-      </div>
-      <h2 className="mt-6 flex items-center gap-2 font-display text-3xl tracking-wide">
-        {c.title}
-        {c.to ? <ArrowUpRight className="size-6 text-primary transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" /> : null}
-      </h2>
-      <p className="mt-2 text-muted-foreground">{c.text}</p>
-    </>
-  );
-  const cls = cn(
-    "reveal border-fire glass group block rounded-3xl p-7 transition-all duration-500",
-    c.to ? "hover:-translate-y-2 hover:shadow-glow" : "opacity-80",
-  );
-  const style = { "--delay": `${(i % 3) * 90}ms` } as React.CSSProperties;
-  return c.to ? (
-    <Link to={c.to} className={cls} style={style}>
-      {inner}
-    </Link>
-  ) : (
-    <div className={cls} style={style}>
-      {inner}
-    </div>
-  );
-}
 
 // Ignore Romanian diacritics so "masini" finds "Mașini".
 const norm = (s: string) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
@@ -82,14 +37,14 @@ function WikiPage() {
         eyebrow="Tot ce trebuie să știi"
         title={
           <>
-            Wiki <span className="text-fire">Imperial</span>
+            Wiki <span className="text-vice">Imperial</span>
           </>
         }
       >
         <p className="mx-auto max-w-xl text-lg text-foreground/75">
           Aici o să găsești tot despre server. Încă îl umplem, așa că mai trage cu ochiul din când în când.
         </p>
-        <label className="glass mx-auto mt-8 flex max-w-lg items-center gap-3 rounded-full px-5 py-3 focus-within:border-primary/60">
+        <label className="liquid-glass mx-auto mt-8 flex max-w-lg items-center gap-3 rounded-full px-5 py-3.5">
           <Search className="size-5 text-muted-foreground" />
           <input
             value={q}
@@ -105,7 +60,7 @@ function WikiPage() {
         {list.length ? (
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {list.map((c, i) => (
-              <CategoryCard key={c.title} c={c} i={i} />
+              <WikiCard key={c.slug} c={c} i={i} />
             ))}
           </div>
         ) : (

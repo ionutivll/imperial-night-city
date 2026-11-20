@@ -150,8 +150,54 @@
 @utility glass {
   background-color: oklch(0.155 0.02 310 / 55%);
   border: 1px solid var(--border);
-  -webkit-backdrop-filter: blur(20px) saturate(140%);
   backdrop-filter: blur(20px) saturate(140%);
+}
+
+/* iOS-style liquid glass: frosted, saturated, with a light rim and a sheen that follows the pointer (--mx/--my). */
+@utility liquid-glass {
+  position: relative;
+  isolation: isolate;
+  background: linear-gradient(135deg, oklch(1 0 0 / 11%) 0%, oklch(1 0 0 / 3%) 45%, oklch(1 0 0 / 7%) 100%);
+  backdrop-filter: blur(22px) saturate(185%) brightness(1.08);
+  box-shadow:
+    inset 0 1px 0 oklch(1 0 0 / 28%),
+    inset 0 -1px 0 oklch(1 0 0 / 6%),
+    inset 0 0 22px oklch(1 0 0 / 4%),
+    0 24px 50px -24px oklch(0 0 0 / 75%);
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(140deg, oklch(1 0 0 / 55%), oklch(1 0 0 / 6%) 30%, oklch(1 0 0 / 2%) 60%, oklch(0.84 0.14 75 / 45%));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background: radial-gradient(260px circle at var(--mx, 30%) var(--my, -20%), oklch(1 0 0 / 14%), transparent 60%);
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+}
+
+/* GTA VI postcard gradient for big words */
+@utility text-vice {
+  background-image: linear-gradient(100deg, var(--primary-glow) 0%, var(--primary) 30%, var(--pink) 65%, var(--violet) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility bg-vice {
+  background-image: linear-gradient(100deg, var(--primary-glow) 0%, var(--primary) 30%, var(--pink) 65%, var(--violet) 100%);
 }
 
 @utility bg-fade-bottom {
@@ -327,4 +373,49 @@
 @keyframes aurora-drift {
   from { transform: translate(0, 0) scale(1); }
   to { transform: translate(6vw, -4vh) scale(1.15); }
+}
+
+/* Light sweep across glass tiles */
+.shine {
+  position: relative;
+  overflow: hidden;
+}
+.shine::after {
+  content: "";
+  position: absolute;
+  inset: -20% auto -20% -60%;
+  width: 40%;
+  transform: skewX(-20deg);
+  background: linear-gradient(90deg, transparent, oklch(1 0 0 / 28%), transparent);
+  animation: shine-sweep 5s ease-in-out infinite;
+  animation-delay: var(--shine-delay, 0s);
+  pointer-events: none;
+}
+@keyframes shine-sweep {
+  0%, 70% { left: -60%; }
+  100% { left: 130%; }
+}
+
+/* Retro striped sunset sun (GTA VI / Vice mood) */
+.vice-sun {
+  border-radius: 9999px;
+  background: linear-gradient(to bottom, var(--primary-glow), var(--primary) 45%, var(--pink) 75%, var(--violet));
+  mask:
+    linear-gradient(#000, #000) top / 100% 52% no-repeat,
+    repeating-linear-gradient(to bottom, #000 0 12px, transparent 12px 20px) bottom / 100% 48% no-repeat;
+}
+
+/* Side menu groups expand with a smooth height animation */
+.expand {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.45s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s ease;
+  opacity: 0;
+}
+.expand[data-open="true"] {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.expand > * {
+  overflow: hidden;
 }

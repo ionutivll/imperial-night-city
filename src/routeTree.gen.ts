@@ -10,53 +10,102 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as RegulamentRouteImport } from './routes/regulament'
-import { Route as WikiRouteImport } from './routes/wiki'
+import { Route as ShopRouteImport } from './routes/shop'
+import { Route as RegulamentIndexRouteImport } from './routes/regulament.index'
+import { Route as RegulamentSectiuneRouteImport } from './routes/regulament.$sectiune'
+import { Route as WikiIndexRouteImport } from './routes/wiki.index'
+import { Route as WikiSlugRouteImport } from './routes/wiki.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const RegulamentRoute = RegulamentRouteImport.update({
-  id: '/regulament',
-  path: '/regulament',
+const ShopRoute = ShopRouteImport.update({
+  id: '/shop',
+  path: '/shop',
   getParentRoute: () => rootRouteImport,
 } as any)
-const WikiRoute = WikiRouteImport.update({
-  id: '/wiki',
-  path: '/wiki',
+const RegulamentIndexRoute = RegulamentIndexRouteImport.update({
+  id: '/regulament/',
+  path: '/regulament/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegulamentSectiuneRoute = RegulamentSectiuneRouteImport.update({
+  id: '/regulament/$sectiune',
+  path: '/regulament/$sectiune',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WikiIndexRoute = WikiIndexRouteImport.update({
+  id: '/wiki/',
+  path: '/wiki/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WikiSlugRoute = WikiSlugRouteImport.update({
+  id: '/wiki/$slug',
+  path: '/wiki/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/regulament': typeof RegulamentRoute
-  '/wiki': typeof WikiRoute
+  '/shop': typeof ShopRoute
+  '/regulament/$sectiune': typeof RegulamentSectiuneRoute
+  '/wiki/$slug': typeof WikiSlugRoute
+  '/regulament/': typeof RegulamentIndexRoute
+  '/wiki/': typeof WikiIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/regulament': typeof RegulamentRoute
-  '/wiki': typeof WikiRoute
+  '/shop': typeof ShopRoute
+  '/regulament/$sectiune': typeof RegulamentSectiuneRoute
+  '/wiki/$slug': typeof WikiSlugRoute
+  '/regulament': typeof RegulamentIndexRoute
+  '/wiki': typeof WikiIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/regulament': typeof RegulamentRoute
-  '/wiki': typeof WikiRoute
+  '/shop': typeof ShopRoute
+  '/regulament/$sectiune': typeof RegulamentSectiuneRoute
+  '/wiki/$slug': typeof WikiSlugRoute
+  '/regulament/': typeof RegulamentIndexRoute
+  '/wiki/': typeof WikiIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/regulament' | '/wiki'
+  fullPaths:
+    | '/'
+    | '/shop'
+    | '/regulament/$sectiune'
+    | '/wiki/$slug'
+    | '/regulament/'
+    | '/wiki/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/regulament' | '/wiki'
-  id: '__root__' | '/' | '/regulament' | '/wiki'
+  to:
+    | '/'
+    | '/shop'
+    | '/regulament/$sectiune'
+    | '/wiki/$slug'
+    | '/regulament'
+    | '/wiki'
+  id:
+    | '__root__'
+    | '/'
+    | '/shop'
+    | '/regulament/$sectiune'
+    | '/wiki/$slug'
+    | '/regulament/'
+    | '/wiki/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  RegulamentRoute: typeof RegulamentRoute
-  WikiRoute: typeof WikiRoute
+  ShopRoute: typeof ShopRoute
+  RegulamentSectiuneRoute: typeof RegulamentSectiuneRoute
+  WikiSlugRoute: typeof WikiSlugRoute
+  RegulamentIndexRoute: typeof RegulamentIndexRoute
+  WikiIndexRoute: typeof WikiIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -68,18 +117,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/regulament': {
-      id: '/regulament'
-      path: '/regulament'
-      fullPath: '/regulament'
-      preLoaderRoute: typeof RegulamentRouteImport
+    '/shop': {
+      id: '/shop'
+      path: '/shop'
+      fullPath: '/shop'
+      preLoaderRoute: typeof ShopRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/wiki': {
-      id: '/wiki'
+    '/regulament/': {
+      id: '/regulament/'
+      path: '/regulament'
+      fullPath: '/regulament/'
+      preLoaderRoute: typeof RegulamentIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/regulament/$sectiune': {
+      id: '/regulament/$sectiune'
+      path: '/regulament/$sectiune'
+      fullPath: '/regulament/$sectiune'
+      preLoaderRoute: typeof RegulamentSectiuneRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/wiki/': {
+      id: '/wiki/'
       path: '/wiki'
-      fullPath: '/wiki'
-      preLoaderRoute: typeof WikiRouteImport
+      fullPath: '/wiki/'
+      preLoaderRoute: typeof WikiIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/wiki/$slug': {
+      id: '/wiki/$slug'
+      path: '/wiki/$slug'
+      fullPath: '/wiki/$slug'
+      preLoaderRoute: typeof WikiSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -87,8 +157,11 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  RegulamentRoute: RegulamentRoute,
-  WikiRoute: WikiRoute,
+  ShopRoute: ShopRoute,
+  RegulamentSectiuneRoute: RegulamentSectiuneRoute,
+  WikiSlugRoute: WikiSlugRoute,
+  RegulamentIndexRoute: RegulamentIndexRoute,
+  WikiIndexRoute: WikiIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -1,11 +1,15 @@
 import type { ReactNode } from "react";
 import logo from "@/assets/imperial-romania-logo.png.asset.json";
+import { useRouterState } from "@tanstack/react-router";
+import { useGlassLight } from "@/hooks/use-glass-light";
 import { useReveal } from "@/hooks/use-reveal";
 import { Navbar } from "./Navbar";
 
 /** Shared page frame: blurred sunset background, top menu, footer, scroll-reveal. */
 export function SiteShell({ children }: { children: ReactNode }) {
-  useReveal();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  useReveal(pathname);
+  useGlassLight();
   return (
     <main className="relative isolate min-h-screen overflow-x-clip">
       <div className="aurora" aria-hidden>

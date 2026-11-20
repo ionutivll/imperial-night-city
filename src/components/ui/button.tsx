@@ -22,7 +22,7 @@ const buttonVariants = cva(
         inverseOutline:
           "rounded-full border border-primary-foreground/40 font-display tracking-wider text-primary-foreground transition-colors hover:bg-primary-foreground/10",
         glass:
-          "rounded-full border border-primary/40 bg-foreground/5 font-display tracking-wider text-foreground backdrop-blur-md transition-all duration-300 hover:border-primary hover:bg-primary/15 hover:text-primary",
+          "liquid-glass rounded-full font-display tracking-wider text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:text-primary-glow",
       },
       size: {
         default: "h-9 px-4 py-2",

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/imperial-romania-logo.png.asset.json";
 import { SERVER_INFO } from "@/lib/server-info";
 import { cn } from "@/lib/utils";
+import { SideMenu } from "./SideMenu";
 
 type NavItem = { label: string; to: "/" | "/regulament" | "/wiki"; hash?: string };
 
@@ -13,6 +13,24 @@ const links: NavItem[] = [
   { label: "Regulament", to: "/regulament" },
   { label: "Wiki", to: "/wiki" },
 ];
+
+/** Two-line "burger" that opens the side menu. */
+function MenuButton({ onClick }: { onClick: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label="Deschide meniul"
+      className="liquid-glass group flex h-11 items-center gap-3 rounded-full pl-3.5 pr-3.5 transition-transform duration-300 hover:scale-105 md:pr-5"
+    >
+      <span className="flex w-5 flex-col gap-[5px]">
+        <span className="h-0.5 w-5 rounded-full bg-foreground transition-all duration-300 group-hover:w-3" />
+        <span className="h-0.5 w-3 rounded-full bg-vice transition-all duration-300 group-hover:w-5" />
+      </span>
+      <span className="hidden font-display text-lg tracking-widest md:inline">Meniu</span>
+    </button>
+  );
+}
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -33,86 +51,47 @@ export function Navbar() {
       <div
         className={cn(
           "mx-auto max-w-6xl rounded-full transition-all duration-500",
-          scrolled || open ? "glass py-2 shadow-card" : "border border-transparent py-3",
-          open && "rounded-3xl",
+          scrolled ? "liquid-glass bg-background/40 py-2" : "py-3",
         )}
       >
-        <nav className="flex items-center justify-between pl-4 pr-3 md:pl-6">
-          <Link to="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
-            <img
-              src={logo.url}
-              alt="Imperial Romania"
-              className={cn("w-auto transition-all duration-500", scrolled ? "h-10" : "h-12")}
-            />
-          </Link>
-
-          <ul className="hidden items-center gap-1 md:flex">
-            {links.map((l) => (
-              <li key={l.label}>
-                <Link
-                  to={l.to}
-                  {...(l.hash ? { hash: l.hash } : {})}
-                  className={cn(
-                    "relative block rounded-full px-5 py-2 font-display text-lg tracking-wider transition-colors duration-300 hover:bg-foreground/5 hover:text-foreground",
-                    isActive(l) ? "bg-foreground/10 text-foreground" : "text-foreground/70",
-                  )}
-                >
-                  {l.label}
-                  {isActive(l) ? (
-                    <span className="absolute inset-x-5 -bottom-0.5 h-0.5 rounded-full bg-fire" />
-                  ) : null}
-                </Link>
-              </li>
-            ))}
-          </ul>
-
-          <div className="hidden md:block">
-            <Button variant="hero" size="lg" asChild>
-              <a href={SERVER_INFO.discordUrl} target="_blank" rel="noreferrer">
-                Intră pe Discord
-              </a>
-            </Button>
+        <nav className="flex items-center justify-between gap-3 px-2 md:px-3">
+          <div className="flex items-center gap-3">
+            <MenuButton onClick={() => setOpen(true)} />
+            <Link to="/" className="flex items-center">
+              <img
+                src={logo.url}
+                alt="Imperial Romania"
+                className={cn("w-auto transition-all duration-500", scrolled ? "h-10" : "h-12")}
+              />
+            </Link>
           </div>
 
-          <button
-            className="p-2 text-foreground md:hidden"
-            onClick={() => setOpen((o) => !o)}
-            aria-label={open ? "Închide meniul" : "Deschide meniul"}
-          >
-            {open ? <X className="size-7" /> : <Menu className="size-7" />}
-          </button>
-        </nav>
-
-        <div
-          className={cn(
-            "overflow-hidden transition-all duration-500 md:hidden",
-            open ? "max-h-96 opacity-100" : "max-h-0 opacity-0",
-          )}
-        >
-          <ul className="flex flex-col gap-4 px-6 pb-6 pt-4">
+          <ul className="liquid-glass hidden items-center gap-1 rounded-full p-1 md:flex">
             {links.map((l) => (
               <li key={l.label}>
                 <Link
                   to={l.to}
                   {...(l.hash ? { hash: l.hash } : {})}
-                  onClick={() => setOpen(false)}
                   className={cn(
-                    "font-display text-3xl tracking-wider hover:text-primary",
-                    isActive(l) ? "text-fire" : "text-foreground",
+                    "relative block rounded-full px-5 py-1.5 font-display text-lg tracking-wider transition-all duration-300 hover:text-foreground",
+                    isActive(l) ? "bg-foreground/[0.12] text-foreground shadow-[inset_0_1px_0_oklch(1_0_0/0.2)]" : "text-foreground/70",
                   )}
                 >
                   {l.label}
                 </Link>
               </li>
             ))}
-            <Button variant="hero" size="lg" asChild>
-              <a href={SERVER_INFO.discordUrl} target="_blank" rel="noreferrer">
-                Intră pe Discord
-              </a>
-            </Button>
           </ul>
-        </div>
+
+          <Button variant="hero" size="lg" className="h-11 px-5 md:px-7" asChild>
+            <a href={SERVER_INFO.discordUrl} target="_blank" rel="noreferrer">
+              <span className="sm:hidden">Discord</span>
+              <span className="hidden sm:inline">Intră pe Discord</span>
+            </a>
+          </Button>
+        </nav>
       </div>
+      <SideMenu open={open} onOpenChange={setOpen} />
     </header>
   );
 }

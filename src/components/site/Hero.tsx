@@ -46,6 +46,9 @@ export function Hero() {
       <div className="absolute inset-0 bg-fade-top" />
       <div className="absolute inset-0 bg-radial-glow" />
       <div className="absolute inset-x-0 bottom-0 h-2/3 bg-fade-bottom" />
+      <div className="pointer-events-none absolute left-1/2 top-[12%] -translate-x-1/2 opacity-25 blur-[1px]" aria-hidden>
+        <div className="vice-sun animate-glow-pulse size-[min(90vw,640px)]" />
+      </div>
       <Embers count={18} />
 
       <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-5 pb-28 pt-32 text-center">
@@ -79,7 +82,7 @@ export function Hero() {
             </>
           ) : (
             <>
-              Lucrăm la oraș. <span className="text-fire">Vine curând.</span>
+              Lucrăm la oraș. <span className="text-vice">Vine curând.</span>
             </>
           )}
         </h1>

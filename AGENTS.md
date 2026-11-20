@@ -30,7 +30,8 @@ use the editor.
 <!-- LOVABLE:END -->
 
 ## Project rules
-- Pages are TanStack routes (`/`, `/regulament`, `/wiki`) wrapped in `SiteShell` (menu, footer, blurred background, scroll-reveal); homepage sections live in `src/components/site/`; why: shared frame, sections stay independently editable.
-- Rules text lives in `src/lib/rules.ts` and wiki categories in `src/lib/wiki.ts`; why: content updates without touching layout.
+- Pages are TanStack routes (`/`, `/regulament`, `/regulament/$sectiune`, `/wiki`, `/wiki/$slug`, `/shop`) wrapped in `SiteShell` (top bar, slide-in `SideMenu`, footer, blurred background, scroll-reveal); homepage sections live in `src/components/site/`; why: shared frame, sections stay independently editable.
+- Regulament sections (structure + `rules` text) live in `src/lib/rules.ts`, wiki categories in `src/lib/wiki.ts`, shop categories in `src/lib/shop.ts`; the side menu and pages are generated from them; why: content updates without touching layout.
+- Glass surfaces use the `liquid-glass` utility (pointer sheen via `useGlassLight`); why: one consistent iOS-style glass look.
 - Server connect address, Discord link and the open/closed flag (`isOpen`) live only in `src/lib/server-info.ts`; sections branch on `isOpen`; why: one place to flip the site to launch mode.
 - Scroll-reveal uses the `.reveal` class + `useReveal()` hook, with stagger via a `--delay` CSS variable; why: lightweight animations without an animation library.

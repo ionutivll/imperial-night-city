@@ -1,8 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SiteShell } from "@/components/site/SiteShell";
-import { PageHeader } from "@/components/site/PageHeader";
+import { WikiDivider, WikiLayout } from "@/components/wiki/WikiLayout";
 import { ComingSoonNote } from "@/components/site/ComingSoonNote";
 import { RULE_SECTIONS } from "@/lib/rules";
 import { SERVER_INFO } from "@/lib/server-info";

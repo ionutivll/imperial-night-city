@@ -1,10 +1,8 @@
 import { createFileRoute, Link, notFound, redirect } from "@tanstack/react-router";
-import { ArrowLeft } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowLeft, ArrowRight, ChevronRight } from "lucide-react";
 import { SiteShell } from "@/components/site/SiteShell";
-import { PageHeader } from "@/components/site/PageHeader";
 import { ComingSoonNote } from "@/components/site/ComingSoonNote";
-import { WikiCard } from "@/components/site/WikiCard";
+import { WikiDivider, WikiLayout } from "@/components/wiki/WikiLayout";
 import { getWikiCategory, WIKI_CATEGORIES } from "@/lib/wiki";
 import { SERVER_INFO } from "@/lib/server-info";
 
@@ -37,40 +35,60 @@ export const Route = createFileRoute("/wiki/$slug")({
 function WikiCategoryPage() {
   const { slug } = Route.useLoaderData();
   const c = getWikiCategory(slug)!;
-  const others = WIKI_CATEGORIES.filter((o) => o.slug !== slug).slice(0, 3);
+  const pages = WIKI_CATEGORIES.filter((o) => o.slug !== "regulament");
+  const idx = pages.findIndex((o) => o.slug === slug);
+  const prev = idx > 0 ? pages[idx - 1] : undefined;
+  const next = idx < pages.length - 1 ? pages[idx + 1] : undefined;
 
   return (
     <SiteShell>
-      <PageHeader eyebrow="Wiki" title={<span className="text-vice">{c.title}</span>}>
-        <p className="mx-auto max-w-xl text-lg text-foreground/75">{c.text}</p>
-      </PageHeader>
-
-      <section className="mx-auto max-w-6xl px-5 pb-28">
-        <div className="mx-auto max-w-3xl">
-          <ComingSoonNote title="Pagina asta vine curând">
-            O scriem acum. Dacă ai o întrebare până atunci, dă-ne un mesaj pe Discord.
-          </ComingSoonNote>
-          <div className="reveal mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-            <Button variant="glass" size="xl" asChild>
-              <Link to="/wiki">
-                <ArrowLeft /> Înapoi la wiki
-              </Link>
-            </Button>
-            <Button variant="hero" size="xl" asChild>
-              <a href={SERVER_INFO.discordUrl} target="_blank" rel="noreferrer">
-                Întreabă pe Discord
-              </a>
-            </Button>
-          </div>
+      <WikiLayout>
+        <nav className="animate-hero-in flex items-center gap-1.5 text-sm text-muted-foreground" aria-label="Breadcrumb">
+          <Link to="/wiki" className="transition-colors hover:text-primary">Wiki</Link>
+          <ChevronRight className="size-3.5" />
+          <span className="text-foreground">{c.title}</span>
+        </nav>
+        <div className="animate-hero-in mt-6 flex items-center gap-4" style={{ "--delay": "100ms" } as React.CSSProperties}>
+          <span className="grid size-14 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary ring-1 ring-primary/25">
+            <c.icon className="size-7" />
+          </span>
+          <h1 className="font-display text-6xl leading-none md:text-7xl">{c.title}</h1>
         </div>
+        <p className="animate-hero-in mt-4 max-w-2xl text-lg text-foreground/70" style={{ "--delay": "180ms" } as React.CSSProperties}>
+          {c.text}
+        </p>
 
-        <p className="reveal mt-20 text-center font-display text-xl tracking-[0.3em] text-primary-glow">Mai vezi și</p>
-        <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {others.map((o, i) => (
-            <WikiCard key={o.slug} c={o} i={i} />
-          ))}
+        <WikiDivider />
+
+        <ComingSoonNote title="Pagina asta vine curând">
+          O scriem acum. Dacă ai o întrebare până atunci,{" "}
+          <a href={SERVER_INFO.discordUrl} target="_blank" rel="noreferrer" className="text-primary underline-offset-4 hover:underline">
+            dă-ne un mesaj pe Discord
+          </a>
+          .
+        </ComingSoonNote>
+
+        <div className="mt-12 grid gap-3 sm:grid-cols-2">
+          {prev ? (
+            <Link to="/wiki/$slug" params={{ slug: prev.slug }} className="liquid-glass group rounded-xl p-5 transition-colors hover:border-primary/40">
+              <span className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                <ArrowLeft className="size-3.5" /> Înapoi
+              </span>
+              <span className="mt-1 block font-display text-2xl tracking-wide group-hover:text-primary">{prev.title}</span>
+            </Link>
+          ) : (
+            <span />
+          )}
+          {next ? (
+            <Link to="/wiki/$slug" params={{ slug: next.slug }} className="liquid-glass group rounded-xl p-5 text-right transition-colors hover:border-primary/40">
+              <span className="flex items-center justify-end gap-1.5 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                Următoarea <ArrowRight className="size-3.5" />
+              </span>
+              <span className="mt-1 block font-display text-2xl tracking-wide group-hover:text-primary">{next.title}</span>
+            </Link>
+          ) : null}
         </div>
-      </section>
+      </WikiLayout>
     </SiteShell>
   );
 }

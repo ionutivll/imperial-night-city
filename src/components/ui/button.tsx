@@ -16,13 +16,13 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        hero: "btn-hero rounded-full font-display text-lg tracking-wider text-primary-foreground",
+        hero: "btn-hero rounded-xl font-display text-lg tracking-wider text-primary-foreground",
         inverse:
           "rounded-full bg-background font-display tracking-wider text-foreground transition-transform duration-300 hover:scale-105",
         inverseOutline:
           "rounded-full border border-primary-foreground/40 font-display tracking-wider text-primary-foreground transition-colors hover:bg-primary-foreground/10",
         glass:
-          "liquid-glass rounded-full font-display tracking-wider text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:text-primary-glow",
+          "rounded-xl border border-foreground/15 bg-foreground/[0.04] font-display tracking-wider text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:border-primary hover:text-primary",
       },
       size: {
         default: "h-9 px-4 py-2",

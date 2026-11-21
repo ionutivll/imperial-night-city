@@ -24,7 +24,7 @@ export function Rules() {
             className="reveal liquid-glass group flex items-center gap-3 rounded-2xl p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-glow"
             style={{ "--delay": `${(i % 4) * 70}ms` } as React.CSSProperties}
           >
-            <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-vice text-primary-foreground transition-transform duration-300 group-hover:-rotate-6">
+            <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary ring-1 ring-primary/25 transition-transform duration-300 group-hover:-rotate-6">
               <s.icon className="size-5" />
             </span>
             <span className="font-display text-lg leading-tight tracking-wide md:text-xl">{s.title}</span>

@@ -49,7 +49,7 @@ export function StoryPaths() {
         {paths.map((path, index) => (
           <article
             key={path.title}
-            className="reveal group relative min-h-[680px] overflow-hidden rounded-[2rem] shadow-card md:min-h-[760px]"
+            className="reveal group relative min-h-[680px] overflow-hidden rounded-2xl shadow-card md:min-h-[760px]"
             style={{ "--delay": `${index * 140}ms` } as CSSProperties}
           >
             <img
@@ -73,7 +73,7 @@ export function StoryPaths() {
             </div>
 
             <div className="absolute inset-x-0 bottom-0 p-4 md:p-6">
-              <div className="liquid-glass rounded-[1.6rem] bg-background/45 p-6 md:p-8">
+              <div className="liquid-glass rounded-2xl bg-background/45 p-6 md:p-8">
                 <h3 className="font-display text-5xl leading-none md:text-6xl">{path.title}</h3>
                 <p className="mt-4 leading-relaxed text-foreground/75">{path.text}</p>
                 <ol className="mt-6 space-y-3">

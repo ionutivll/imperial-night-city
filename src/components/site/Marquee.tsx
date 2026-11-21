@@ -3,7 +3,7 @@ const words = ["Roleplay", "Poliție", "SMURD", "Mafie", "Afaceri", "Mașini cus
 export function Marquee() {
   const row = [...words, ...words];
   return (
-    <div className="relative overflow-hidden border-y border-border bg-card/25 py-5 backdrop-blur-xl">
+    <div className="relative overflow-hidden border-y border-border bg-card/25 py-5">
       <div className="animate-marquee flex w-max gap-10 whitespace-nowrap">
         {row.map((word, index) => (
           <span key={`${word}-${index}`} className="flex items-center gap-10 font-display text-2xl tracking-[0.12em] text-foreground/60 md:text-3xl">

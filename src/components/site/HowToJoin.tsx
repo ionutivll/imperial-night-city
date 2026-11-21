@@ -65,11 +65,11 @@ export function HowToJoin() {
         {steps.map((step, index) => (
           <article
             key={step.title}
-            className="reveal liquid-glass relative flex flex-col rounded-[2rem] bg-card/35 p-6 md:p-8"
+            className="reveal liquid-glass relative flex flex-col rounded-2xl bg-card/35 p-6 md:p-8"
             style={{ "--delay": `${index * 120}ms` } as CSSProperties}
           >
             <div className="flex items-center justify-between">
-              <span className="grid size-16 place-items-center rounded-2xl bg-vice text-primary-foreground shadow-glow">
+              <span className="grid size-16 place-items-center rounded-2xl bg-primary/10 text-primary ring-1 ring-primary/25">
                 <step.icon className="size-7" />
               </span>
               <span className="text-outline font-display text-7xl">0{index + 1}</span>

@@ -12,14 +12,14 @@ import { cn } from "@/lib/utils";
 type Group = "wiki" | "regulament" | null;
 
 const rowCls =
-  "group flex w-full items-center gap-3 rounded-2xl px-3 py-2 text-left font-display text-2xl tracking-wide transition-all duration-300 hover:bg-foreground/[0.07]";
+  "group flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left font-display text-2xl tracking-wide transition-all duration-300 hover:bg-foreground/[0.07]";
 
 function RowIcon({ icon: Icon, active }: { icon: LucideIcon; active?: boolean }) {
   return (
     <span
       className={cn(
         "grid size-10 shrink-0 place-items-center rounded-xl transition-all duration-300 group-hover:scale-105",
-        active ? "bg-vice text-primary-foreground shadow-glow" : "liquid-glass text-foreground/85",
+        active ? "bg-primary text-primary-foreground" : "border border-border bg-foreground/[0.04] text-foreground/85",
       )}
     >
       <Icon className="size-5" />
@@ -63,7 +63,7 @@ function ActiveBar({ active }: { active: boolean }) {
   );
 }
 
-/** Slide-in liquid glass menu with Wiki, Regulament (expands into sections) and Shop. */
+/** Slide-in frosted menu with Wiki, Regulament (expands into sections) and Shop. */
 export function SideMenu({ open, onOpenChange }: { open: boolean; onOpenChange: (o: boolean) => void }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const [group, setGroup] = useState<Group>(null);
@@ -80,23 +80,21 @@ export function SideMenu({ open, onOpenChange }: { open: boolean; onOpenChange: 
   return (
     <Dialog.Root open={open} onOpenChange={onOpenChange}>
       <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 z-[60] bg-background/50 backdrop-blur-sm data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=closed]:animate-out data-[state=closed]:fade-out-0" />
+        <Dialog.Overlay className="fixed inset-0 z-[60] bg-background/70 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=closed]:animate-out data-[state=closed]:fade-out-0" />
         <Dialog.Content
           className={cn(
-            "liquid-glass fixed inset-y-3 left-3 z-[70] flex w-[min(calc(100vw-1.5rem),380px)] flex-col rounded-[2rem] bg-background/60 outline-none",
+            "glass-bar fixed inset-y-3 left-3 z-[70] flex w-[min(calc(100vw-1.5rem),380px)] flex-col rounded-2xl outline-none",
             "data-[state=open]:animate-in data-[state=open]:slide-in-from-left-10 data-[state=open]:fade-in-0 data-[state=open]:duration-500",
             "data-[state=closed]:animate-out data-[state=closed]:slide-out-to-left-10 data-[state=closed]:fade-out-0 data-[state=closed]:duration-300",
           )}
         >
-          <div className="pointer-events-none absolute -left-20 -top-20 size-64 rounded-full bg-primary/25 blur-3xl" />
-          <div className="pointer-events-none absolute -bottom-24 -right-16 size-64 rounded-full bg-violet/25 blur-3xl" />
 
           <div className="relative flex items-center justify-between px-5 pb-2 pt-5">
             <Link to="/" onClick={close} className="flex items-center">
               <img src={logo.url} alt="Imperial Romania" className="h-12 w-auto" />
             </Link>
             <Dialog.Close
-              className="liquid-glass grid size-10 place-items-center rounded-full text-foreground/80 transition-transform duration-300 hover:rotate-90 hover:text-foreground"
+              className="grid size-10 place-items-center rounded-xl border border-border bg-foreground/[0.04] text-foreground/80 transition-transform duration-300 hover:rotate-90 hover:text-foreground"
               aria-label="Închide meniul"
             >
               <X className="size-5" />

@@ -5,7 +5,7 @@ import { PenLine } from "lucide-react";
 export function ComingSoonNote({ title, children }: { title: string; children: ReactNode }) {
   return (
     <div className="reveal liquid-glass flex items-start gap-4 rounded-3xl p-5 md:p-6">
-      <div className="shine grid size-12 shrink-0 place-items-center rounded-2xl bg-vice text-primary-foreground shadow-glow">
+      <div className="grid size-12 shrink-0 place-items-center rounded-2xl bg-primary/10 text-primary ring-1 ring-primary/25">
         <PenLine className="size-5" />
       </div>
       <div>

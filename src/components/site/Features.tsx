@@ -41,7 +41,7 @@ const extras = [
 export function Features() {
   return (
     <section id="features" className="relative overflow-hidden py-24 md:py-32">
-      <div className="pointer-events-none absolute left-1/2 top-20 h-[420px] w-[800px] -translate-x-1/2 rounded-full bg-radial-glow blur-3xl" />
+      <div className="pointer-events-none absolute left-1/2 top-20 h-[420px] w-[800px] -translate-x-1/2 rounded-full bg-radial-glow" />
       <div className="relative mx-auto max-w-7xl px-5">
         <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
           <div>
@@ -62,7 +62,7 @@ export function Features() {
           {showcase.map((feature, index) => (
             <article
               key={feature.title}
-              className="reveal liquid-glass group overflow-hidden rounded-[2rem] bg-card/35"
+              className="reveal liquid-glass group overflow-hidden rounded-2xl bg-card/35"
               style={{ "--delay": `${index * 120}ms` } as CSSProperties}
             >
               <div className="relative aspect-[4/3] overflow-hidden">
@@ -99,7 +99,7 @@ export function Features() {
           {extras.map((extra, index) => (
             <div
               key={extra.title}
-              className="reveal group flex items-center gap-4 rounded-2xl border border-border bg-card/35 p-5 backdrop-blur-xl transition-colors duration-300 hover:bg-card/60"
+              className="reveal group flex items-center gap-4 rounded-2xl border border-border bg-card/35 p-5 transition-colors duration-300 hover:bg-card/60"
               style={{ "--delay": `${(index % 3) * 80}ms` } as CSSProperties}
             >
               <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-foreground/[0.07] text-primary-glow transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-105">

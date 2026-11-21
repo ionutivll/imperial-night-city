@@ -46,11 +46,10 @@ function ShopPage() {
           {SHOP_CATEGORIES.map((c, i) => (
             <article
               key={c.title}
-              className="reveal liquid-glass group relative flex flex-col overflow-hidden rounded-[1.75rem] p-6"
+              className="reveal liquid-glass group relative flex flex-col overflow-hidden rounded-2xl p-6"
               style={{ "--delay": `${i * 90}ms` } as React.CSSProperties}
             >
-              <div className="pointer-events-none absolute -right-10 -top-10 size-36 rounded-full bg-vice opacity-25 blur-2xl transition-opacity duration-500 group-hover:opacity-50" />
-              <div className="shine grid size-14 place-items-center rounded-2xl bg-vice text-primary-foreground shadow-glow" style={{ "--shine-delay": `${i * 0.6}s` } as React.CSSProperties}>
+              <div className="grid size-14 place-items-center rounded-2xl bg-primary/10 text-primary ring-1 ring-primary/25" style={{ "--shine-delay": `${i * 0.6}s` } as React.CSSProperties}>
                 <c.icon className="size-7" />
               </div>
               <h2 className="mt-5 font-display text-3xl tracking-wide">{c.title}</h2>

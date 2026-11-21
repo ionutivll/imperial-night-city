@@ -39,12 +39,12 @@ export function Hero() {
           alt="Oraș cu palmieri la apus"
           width={1672}
           height={941}
-          className="h-full w-full object-cover blur-[3px] saturate-[0.85]"
+          className="h-full w-full object-cover blur-[2px] grayscale-[0.6] brightness-75"
         />
       </div>
-      <div className="absolute inset-0 bg-background/60 backdrop-blur-[2px]" />
+      <div className="absolute inset-0 bg-primary/35 mix-blend-color" />
+      <div className="absolute inset-0 bg-background/60" />
       <div className="absolute inset-0 bg-fade-top" />
-      <div className="absolute inset-0 bg-vignette" />
       <div className="absolute inset-x-0 bottom-0 h-2/3 bg-fade-bottom" />
       <Embers count={18} />
 

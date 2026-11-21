@@ -57,52 +57,51 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-/* Imperial Romania — dark night city, sunset orange fading into pink/violet (GTA VI mood). Single dark theme. */
+/* Imperial Romania: near-black warm night, one solid accent #FF7417 (no multicolor gradients). Single dark theme. */
 :root {
-  --radius: 0.875rem;
-  --background: oklch(0.11 0.016 310);
-  --foreground: oklch(0.97 0.01 70);
-  --card: oklch(0.155 0.02 310);
-  --card-foreground: oklch(0.97 0.01 70);
-  --popover: oklch(0.155 0.02 310);
-  --popover-foreground: oklch(0.97 0.01 70);
-  --primary: oklch(0.74 0.17 52);
-  --primary-glow: oklch(0.84 0.14 75);
-  --ember: oklch(0.62 0.2 30);
-  --pink: oklch(0.68 0.21 5);
-  --violet: oklch(0.56 0.2 300);
-  --primary-foreground: oklch(0.14 0.02 45);
-  --secondary: oklch(0.2 0.02 310);
-  --secondary-foreground: oklch(0.97 0.01 70);
-  --muted: oklch(0.2 0.018 310);
-  --muted-foreground: oklch(0.72 0.025 320);
-  --accent: oklch(0.23 0.03 320);
-  --accent-foreground: oklch(0.97 0.01 70);
+  --radius: 0.75rem;
+  --background: oklch(0.12 0.006 60);
+  --foreground: oklch(0.97 0.006 70);
+  --card: oklch(0.165 0.007 60);
+  --card-foreground: oklch(0.97 0.006 70);
+  --popover: oklch(0.165 0.007 60);
+  --popover-foreground: oklch(0.97 0.006 70);
+  --primary: oklch(0.715 0.1915 46.85); /* #FF7417 */
+  --primary-glow: oklch(0.8 0.15 55);
+  --ember: oklch(0.62 0.19 40);
+  /* legacy names kept so old classes stay on-brand: both are orange now */
+  --pink: oklch(0.66 0.19 42);
+  --violet: oklch(0.55 0.16 40);
+  --primary-foreground: oklch(0.15 0.02 45);
+  --secondary: oklch(0.2 0.007 60);
+  --secondary-foreground: oklch(0.97 0.006 70);
+  --muted: oklch(0.2 0.007 60);
+  --muted-foreground: oklch(0.7 0.012 70);
+  --accent: oklch(0.22 0.01 60);
+  --accent-foreground: oklch(0.97 0.006 70);
   --destructive: oklch(0.6 0.22 27);
   --destructive-foreground: oklch(0.98 0 0);
-  --border: oklch(1 0 0 / 9%);
+  --border: oklch(1 0 0 / 8%);
   --input: oklch(1 0 0 / 12%);
-  --ring: oklch(0.74 0.17 52);
-  --chart-1: oklch(0.74 0.17 52);
-  --chart-2: oklch(0.68 0.21 5);
-  --chart-3: oklch(0.56 0.2 300);
-  --chart-4: oklch(0.84 0.14 75);
-  --chart-5: oklch(0.62 0.2 30);
-  --sidebar: oklch(0.13 0.016 310);
-  --sidebar-foreground: oklch(0.97 0.01 70);
-  --sidebar-primary: oklch(0.74 0.17 52);
-  --sidebar-primary-foreground: oklch(0.14 0.02 45);
-  --sidebar-accent: oklch(0.2 0.02 310);
-  --sidebar-accent-foreground: oklch(0.97 0.01 70);
-  --sidebar-border: oklch(1 0 0 / 9%);
-  --sidebar-ring: oklch(0.74 0.17 52);
+  --ring: oklch(0.715 0.1915 46.85);
+  --chart-1: oklch(0.715 0.1915 46.85);
+  --chart-2: oklch(0.8 0.15 55);
+  --chart-3: oklch(0.62 0.19 40);
+  --chart-4: oklch(0.55 0.16 40);
+  --chart-5: oklch(0.45 0.12 40);
+  --sidebar: oklch(0.14 0.006 60);
+  --sidebar-foreground: oklch(0.97 0.006 70);
+  --sidebar-primary: oklch(0.715 0.1915 46.85);
+  --sidebar-primary-foreground: oklch(0.15 0.02 45);
+  --sidebar-accent: oklch(0.2 0.007 60);
+  --sidebar-accent-foreground: oklch(0.97 0.006 70);
+  --sidebar-border: oklch(1 0 0 / 8%);
+  --sidebar-ring: oklch(0.715 0.1915 46.85);
 
-  --gradient-fire: linear-gradient(115deg, var(--primary-glow) 0%, var(--primary) 40%, var(--pink) 100%);
-  --gradient-fire-wide: linear-gradient(90deg, var(--primary-glow), var(--primary), var(--pink), var(--primary), var(--primary-glow));
-  --gradient-fade-bottom: linear-gradient(to bottom, transparent 0%, oklch(0.11 0.016 310 / 75%) 55%, var(--background) 100%);
-  --gradient-fade-top: linear-gradient(to bottom, oklch(0.11 0.016 310 / 85%) 0%, transparent 35%);
-  --gradient-radial-glow: radial-gradient(60% 50% at 50% 40%, oklch(0.74 0.17 52 / 12%), transparent 70%);
-  --shadow-glow: 0 0 30px -8px oklch(0.74 0.17 52 / 45%), 0 10px 30px -12px oklch(0.68 0.21 5 / 40%);
+  --gradient-fade-bottom: linear-gradient(to bottom, transparent 0%, oklch(0.12 0.006 60 / 75%) 55%, var(--background) 100%);
+  --gradient-fade-top: linear-gradient(to bottom, oklch(0.12 0.006 60 / 85%) 0%, transparent 35%);
+  --gradient-radial-glow: radial-gradient(60% 50% at 50% 40%, oklch(0.715 0.1915 46.85 / 10%), transparent 70%);
+  --shadow-glow: 0 10px 30px -12px oklch(0.715 0.1915 46.85 / 55%);
   --shadow-card: 0 30px 60px -30px oklch(0 0 0 / 80%);
 }
 
@@ -127,16 +126,11 @@
 }
 
 @utility text-fire {
-  background-image: var(--gradient-fire-wide);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: fire-shift 6s linear infinite;
+  color: var(--primary);
 }
 
 @utility bg-fire {
-  background-image: var(--gradient-fire);
+  background-color: var(--primary);
 }
 
 @utility bg-radial-glow {
@@ -153,51 +147,44 @@
   backdrop-filter: blur(20px) saturate(140%);
 }
 
-/* iOS-style liquid glass: frosted, saturated, with a light rim and a sheen that follows the pointer (--mx/--my). */
+/* Panel surface (name kept): dark translucent card with a thin rim. No backdrop blur, so it stays cheap to render.
+   A small orange light follows the pointer only while hovering (--mx/--my set by useGlassLight). */
 @utility liquid-glass {
   position: relative;
   isolation: isolate;
-  background: linear-gradient(135deg, oklch(1 0 0 / 11%) 0%, oklch(1 0 0 / 3%) 45%, oklch(1 0 0 / 7%) 100%);
-  backdrop-filter: blur(22px) saturate(185%) brightness(1.08);
-  box-shadow:
-    inset 0 1px 0 oklch(1 0 0 / 28%),
-    inset 0 -1px 0 oklch(1 0 0 / 6%),
-    inset 0 0 22px oklch(1 0 0 / 4%),
-    0 24px 50px -24px oklch(0 0 0 / 75%);
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(140deg, oklch(1 0 0 / 55%), oklch(1 0 0 / 6%) 30%, oklch(1 0 0 / 2%) 60%, oklch(0.84 0.14 75 / 45%));
-    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
-  }
+  background-color: oklch(1 0 0 / 3.5%);
+  border: 1px solid oklch(1 0 0 / 8%);
+  box-shadow: inset 0 1px 0 oklch(1 0 0 / 6%);
   &::after {
     content: "";
     position: absolute;
     inset: 0;
     z-index: -1;
     border-radius: inherit;
-    background: radial-gradient(260px circle at var(--mx, 30%) var(--my, -20%), oklch(1 0 0 / 14%), transparent 60%);
-    transition: opacity 0.4s ease;
+    background: radial-gradient(110px circle at var(--mx, 50%) var(--my, 50%), oklch(0.715 0.1915 46.85 / 9%), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
     pointer-events: none;
+  }
+  &:hover::after {
+    opacity: 1;
   }
 }
 
-/* GTA VI postcard gradient for big words */
+/* Real frosted glass, only for things floating over content (top bar, side menu). */
+@utility glass-bar {
+  background-color: oklch(0.12 0.006 60 / 78%);
+  border: 1px solid oklch(1 0 0 / 8%);
+  backdrop-filter: blur(14px);
+}
+
+/* Accent word: solid brand orange (name kept from the old gradient) */
 @utility text-vice {
-  background-image: linear-gradient(100deg, var(--primary-glow) 0%, var(--primary) 30%, var(--pink) 65%, var(--violet) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--primary);
 }
 
 @utility bg-vice {
-  background-image: linear-gradient(100deg, var(--primary-glow) 0%, var(--primary) 30%, var(--pink) 65%, var(--violet) 100%);
+  background-color: var(--primary);
 }
 
 @utility bg-fade-bottom {
@@ -213,35 +200,21 @@
 }
 
 @utility btn-hero {
-  background-image: var(--gradient-fire-wide);
-  background-size: 200% auto;
+  background-color: var(--primary);
   box-shadow: var(--shadow-glow);
-  transition: background-position 0.6s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
   &:hover {
-    background-position: right center;
-    transform: translateY(-2px) scale(1.03);
-    box-shadow: 0 0 50px -6px oklch(0.74 0.17 52 / 70%), 0 14px 40px -12px oklch(0.68 0.21 5 / 60%);
+    background-color: var(--primary-glow);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 34px -12px oklch(0.715 0.1915 46.85 / 70%);
   }
 }
 
 @utility border-fire {
-  position: relative;
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 1px;
-    background: var(--gradient-fire);
-    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    opacity: 0.35;
-    transition: opacity 0.4s ease;
-    pointer-events: none;
-  }
-  &:hover::before {
-    opacity: 1;
+  border: 1px solid oklch(0.715 0.1915 46.85 / 30%);
+  transition: border-color 0.3s ease;
+  &:hover {
+    border-color: var(--primary);
   }
 }
 
@@ -259,18 +232,15 @@
 /* Scroll reveal */
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
-  filter: blur(6px);
+  transform: translateY(28px);
   transition:
-    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-    filter 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
   transition-delay: var(--delay, 0ms);
 }
 .reveal.is-visible {
   opacity: 1;
   transform: none;
-  filter: none;
 }
 
 .animate-float {
@@ -352,27 +322,18 @@
   100% { transform: translate(0, 0); }
 }
 
-/* Soft blurred sunset blobs behind every page */
+/* Static warm glow behind every page (gradients only, no blur filter or animation). */
 .aurora {
   position: fixed;
   inset: 0;
   z-index: -1;
-  overflow: hidden;
   pointer-events: none;
+  background:
+    radial-gradient(60vw 40vh at 15% 0%, oklch(0.715 0.1915 46.85 / 9%), transparent 70%),
+    radial-gradient(50vw 50vh at 100% 60%, oklch(0.715 0.1915 46.85 / 5%), transparent 70%);
 }
 .aurora span {
-  position: absolute;
-  border-radius: 9999px;
-  filter: blur(120px);
-  opacity: 0.16;
-  animation: aurora-drift 26s ease-in-out infinite alternate;
-}
-.aurora span:nth-child(1) { width: 46vw; height: 46vw; left: -12vw; top: 10vh; background: var(--primary); }
-.aurora span:nth-child(2) { width: 40vw; height: 40vw; right: -10vw; top: 40vh; background: var(--pink); animation-delay: -8s; }
-.aurora span:nth-child(3) { width: 40vw; height: 40vw; left: 28vw; top: 30vh; background: var(--violet); animation-delay: -16s; opacity: 0.2; }
-@keyframes aurora-drift {
-  from { transform: translate(0, 0) scale(1); }
-  to { transform: translate(6vw, -4vh) scale(1.15); }
+  display: none;
 }
 
 /* Light sweep across glass tiles */
@@ -396,14 +357,6 @@
   100% { left: 130%; }
 }
 
-/* Retro striped sunset sun (GTA VI / Vice mood) */
-.vice-sun {
-  border-radius: 9999px;
-  background: linear-gradient(to bottom, var(--primary-glow), var(--primary) 45%, var(--pink) 75%, var(--violet));
-  mask:
-    linear-gradient(#000, #000) top / 100% 52% no-repeat,
-    repeating-linear-gradient(to bottom, #000 0 12px, transparent 12px 20px) bottom / 100% 48% no-repeat;
-}
 
 /* Side menu groups expand with a smooth height animation */
 .expand {
@@ -418,4 +371,13 @@
 }
 .expand > * {
   overflow: hidden;
+}
+
+/* Small uppercase label above titles */
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--primary);
 }

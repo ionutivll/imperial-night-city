@@ -20,7 +20,7 @@ function MenuButton({ onClick }: { onClick: () => void }) {
       type="button"
       onClick={onClick}
       aria-label="Deschide meniul"
-      className="liquid-glass group flex h-11 items-center gap-3 rounded-full pl-3.5 pr-3.5 transition-transform duration-300 hover:scale-105 md:pr-5"
+      className="group flex h-11 items-center gap-3 rounded-xl border border-border bg-foreground/[0.04] pl-3.5 pr-3.5 transition-colors duration-300 hover:border-primary/50 md:pr-5"
     >
       <span className="flex w-5 flex-col gap-[5px]">
         <span className="h-0.5 w-5 rounded-full bg-foreground transition-all duration-300 group-hover:w-3" />
@@ -49,8 +49,8 @@ export function Navbar() {
     <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 md:px-5">
       <div
         className={cn(
-          "mx-auto max-w-6xl rounded-full transition-all duration-500",
-          scrolled ? "liquid-glass bg-background/40 py-2" : "py-3",
+          "mx-auto max-w-6xl rounded-2xl border border-transparent transition-all duration-500",
+          scrolled ? "glass-bar py-2" : "py-3",
         )}
       >
         <nav className="flex items-center justify-between gap-3 px-2 md:px-3">
@@ -65,15 +65,15 @@ export function Navbar() {
             </Link>
           </div>
 
-          <ul className="liquid-glass hidden items-center gap-1 rounded-full p-1 md:flex">
+          <ul className="hidden items-center gap-2 md:flex">
             {links.map((l) => (
               <li key={l.label}>
                 <Link
                   to={l.to}
                   {...(l.hash ? { hash: l.hash } : {})}
                   className={cn(
-                    "relative block rounded-full px-5 py-1.5 font-display text-lg tracking-wider transition-all duration-300 hover:text-foreground",
-                    isActive(l) ? "bg-foreground/[0.12] text-foreground shadow-[inset_0_1px_0_oklch(1_0_0/0.2)]" : "text-foreground/70",
+                    "relative block px-4 py-1.5 font-display text-lg tracking-[0.12em] transition-colors duration-300 hover:text-primary",
+                    isActive(l) ? "text-primary" : "text-foreground/75",
                   )}
                 >
                   {l.label}

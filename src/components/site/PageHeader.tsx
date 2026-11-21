@@ -19,8 +19,9 @@ export function PageHeader({
           aria-hidden
           width={1672}
           height={941}
-          className="absolute inset-0 h-full w-full scale-110 object-cover opacity-35 blur-md"
+          className="absolute inset-0 h-full w-full scale-110 object-cover opacity-30 blur-sm grayscale"
         />
+        <div className="absolute inset-0 bg-primary/25 mix-blend-color" />
         <div className="absolute inset-0 bg-background/50" />
         <div className="absolute inset-0 bg-fade-top" />
       </div>

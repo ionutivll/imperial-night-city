@@ -49,7 +49,7 @@ export function About() {
         </div>
 
         <div
-          className="reveal liquid-glass relative overflow-hidden rounded-[2rem] bg-card/35 p-6 md:p-9"
+          className="reveal liquid-glass relative overflow-hidden rounded-2xl bg-card/35 p-6 md:p-9"
           style={{ "--delay": "160ms" } as CSSProperties}
         >
           <div className="pointer-events-none absolute -right-20 -top-20 size-56 rounded-full bg-pink/15 blur-3xl" />

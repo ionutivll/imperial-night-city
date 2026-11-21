@@ -8,7 +8,7 @@ import { Embers } from "./Embers";
 export function FinalCta() {
   return (
     <section className="relative px-4 pb-24 pt-10 md:px-6 md:pb-32">
-      <div className="reveal grain relative mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] border border-border px-6 py-20 text-center shadow-card md:py-28">
+      <div className="reveal grain relative mx-auto max-w-7xl overflow-hidden rounded-3xl border border-border px-6 py-20 text-center shadow-card md:py-28">
         <img
           src={heroSunset}
           alt=""
@@ -16,8 +16,9 @@ export function FinalCta() {
           loading="lazy"
           width={1672}
           height={941}
-          className="absolute inset-0 h-full w-full scale-110 object-cover blur-[2px]"
+          className="absolute inset-0 h-full w-full scale-110 object-cover blur-[2px] grayscale-[0.6]"
         />
+        <div className="absolute inset-0 bg-primary/35 mix-blend-color" />
         <div className="absolute inset-0 bg-background/65" />
         <div className="absolute inset-0 bg-fade-bottom" />
         <Embers count={12} />

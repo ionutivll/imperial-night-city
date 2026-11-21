@@ -1,10 +1,9 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, Lock } from "lucide-react";
+import { ArrowLeft, ArrowRight, ChevronRight, Lock } from "lucide-react";
 import { SiteShell } from "@/components/site/SiteShell";
-import { PageHeader } from "@/components/site/PageHeader";
+import { WikiDivider, WikiLayout } from "@/components/wiki/WikiLayout";
 import { ComingSoonNote } from "@/components/site/ComingSoonNote";
 import { getRuleSection, RULE_SECTIONS } from "@/lib/rules";
-import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/regulament/$sectiune")({
   loader: ({ params }) => {
@@ -40,45 +39,38 @@ function SectionPage() {
 
   return (
     <SiteShell>
-      <PageHeader
-        eyebrow={`Regulament · ${String(idx + 1).padStart(2, "0")}`}
-        title={<span className="text-vice">{section.title}</span>}
-      >
-        <p className="mx-auto max-w-xl text-lg text-foreground/75">{section.short}</p>
-      </PageHeader>
-
-      <section className="mx-auto max-w-6xl px-5 pb-28">
-        {/* Quick switch between sections */}
-        <div className="reveal -mx-5 mb-10 overflow-x-auto px-5 pb-2">
-          <div className="liquid-glass mx-auto flex w-max gap-1 rounded-full p-1 lg:w-auto lg:flex-wrap lg:justify-center lg:rounded-3xl">
-            {RULE_SECTIONS.map((s) => (
-              <Link
-                key={s.slug}
-                to="/regulament/$sectiune"
-                params={{ sectiune: s.slug }}
-                className={cn(
-                  "flex items-center gap-2 whitespace-nowrap rounded-full px-4 py-2 text-sm font-semibold transition-all duration-300",
-                  s.slug === slug ? "bg-vice text-primary-foreground shadow-glow" : "text-foreground/65 hover:bg-foreground/[0.07] hover:text-foreground",
-                )}
-              >
-                <s.icon className="size-4" />
-                {s.title}
-              </Link>
-            ))}
-          </div>
+      <WikiLayout>
+        <nav className="animate-hero-in flex items-center gap-1.5 text-sm text-muted-foreground" aria-label="Breadcrumb">
+          <Link to="/wiki" className="transition-colors hover:text-primary">Wiki</Link>
+          <ChevronRight className="size-3.5" />
+          <Link to="/regulament" className="transition-colors hover:text-primary">Regulament</Link>
+          <ChevronRight className="size-3.5" />
+          <span className="text-foreground">{section.title}</span>
+        </nav>
+        <p className="eyebrow animate-hero-in mt-6">Capitolul {String(idx + 1).padStart(2, "0")}</p>
+        <div className="animate-hero-in mt-3 flex items-center gap-4" style={{ "--delay": "100ms" } as React.CSSProperties}>
+          <span className="grid size-14 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary ring-1 ring-primary/25">
+            <section.icon className="size-7" />
+          </span>
+          <h1 className="font-display text-5xl leading-none md:text-7xl">{section.title}</h1>
         </div>
+        <p className="animate-hero-in mt-4 max-w-2xl text-lg text-foreground/70" style={{ "--delay": "180ms" } as React.CSSProperties}>
+          {section.short}
+        </p>
 
-        <div className="mx-auto max-w-3xl">
+        <WikiDivider />
+
+        <div className="max-w-3xl">
           {section.rules.length ? (
             <ol className="space-y-4">
               {section.rules.map((r, i) => (
                 <li
                   key={r.title}
-                  className="reveal liquid-glass rounded-3xl p-6"
+                  className="reveal liquid-glass rounded-xl p-6"
                   style={{ "--delay": `${i * 70}ms` } as React.CSSProperties}
                 >
                   <p className="flex items-center gap-4 font-display text-2xl tracking-wide">
-                    <span className="text-vice">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="text-primary">{String(i + 1).padStart(2, "0")}</span>
                     {r.title}
                   </p>
                   <p className="mt-2 text-muted-foreground">{r.text}</p>
@@ -90,15 +82,15 @@ function SectionPage() {
               <ComingSoonNote title="Textul vine curând">
                 Secțiunea asta e în lucru la staff. Mai jos vezi ce situații o să acopere.
               </ComingSoonNote>
-              <p className="reveal mt-12 font-display text-xl tracking-[0.3em] text-primary-glow">Ce o să găsești aici</p>
+              <p className="eyebrow reveal mt-12">Ce o să găsești aici</p>
               <ul className="mt-4 space-y-3">
                 {section.topics.map((t, i) => (
                   <li
                     key={t}
-                    className="reveal liquid-glass flex items-center gap-4 rounded-2xl px-5 py-4"
+                    className="reveal liquid-glass flex items-center gap-4 rounded-xl px-5 py-4"
                     style={{ "--delay": `${i * 60}ms` } as React.CSSProperties}
                   >
-                    <span className="font-display text-2xl text-vice">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="w-8 shrink-0 text-sm tabular-nums text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
                     <span className="font-display text-2xl tracking-wide">{t}</span>
                     <Lock className="ml-auto size-4 text-muted-foreground" />
                   </li>
@@ -112,7 +104,7 @@ function SectionPage() {
               <Link
                 to="/regulament/$sectiune"
                 params={{ sectiune: prev.slug }}
-                className="liquid-glass group rounded-3xl p-5 transition-transform duration-300 hover:-translate-y-1"
+                className="liquid-glass group rounded-xl p-5 transition-colors hover:border-primary/40"
               >
                 <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                   <ArrowLeft className="size-4 transition-transform group-hover:-translate-x-1" /> Înapoi
@@ -120,7 +112,7 @@ function SectionPage() {
                 <span className="mt-1 block font-display text-2xl">{prev.title}</span>
               </Link>
             ) : (
-              <Link to="/regulament" className="liquid-glass group rounded-3xl p-5 transition-transform duration-300 hover:-translate-y-1">
+              <Link to="/regulament" className="liquid-glass group rounded-xl p-5 transition-colors hover:border-primary/40">
                 <span className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                   <ArrowLeft className="size-4 transition-transform group-hover:-translate-x-1" /> Înapoi
                 </span>
@@ -131,7 +123,7 @@ function SectionPage() {
               <Link
                 to="/regulament/$sectiune"
                 params={{ sectiune: next.slug }}
-                className="liquid-glass group rounded-3xl p-5 text-right transition-transform duration-300 hover:-translate-y-1"
+                className="liquid-glass group rounded-xl p-5 text-right transition-colors hover:border-primary/40"
               >
                 <span className="flex items-center justify-end gap-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                   Următoarea <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
@@ -141,7 +133,7 @@ function SectionPage() {
             ) : null}
           </nav>
         </div>
-      </section>
+      </WikiLayout>
     </SiteShell>
   );
 }

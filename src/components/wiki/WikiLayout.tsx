@@ -33,7 +33,7 @@ function useSearch(q: string): Hit[] {
 
 const itemCls = (active: boolean) =>
   cn(
-    "group flex w-full items-center gap-3 rounded-lg border px-3 py-2.5 text-left font-display text-lg tracking-[0.08em] transition-colors duration-200",
+    "group flex w-full items-center gap-3 rounded-lg border px-3 py-2.5 text-left font-display text-base tracking-[0.08em] transition-colors duration-200",
     active ? "border-primary/60 bg-primary/10 text-foreground" : "border-transparent text-foreground/75 hover:bg-foreground/[0.04] hover:text-foreground",
   );
 

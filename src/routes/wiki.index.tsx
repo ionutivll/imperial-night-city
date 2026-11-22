@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, MapPin } from "lucide-react";
+import { ArrowRight, MapPin, MessageCircleQuestion } from "lucide-react";
 import { SiteShell } from "@/components/site/SiteShell";
 import { WikiDivider, WikiLayout } from "@/components/wiki/WikiLayout";
 import { RULE_SECTIONS } from "@/lib/rules";
@@ -115,7 +115,7 @@ function WikiPage() {
                   <span className="w-6 shrink-0 text-sm tabular-nums text-muted-foreground">{pad(i + 1)}</span>
                   <span className="min-w-0 flex-1">
                     <span className="block font-display text-xl tracking-wide">{s.title}</span>
-                    <span className="block truncate text-sm text-muted-foreground">{s.short}</span>
+                    <span className="block line-clamp-2 text-sm text-muted-foreground">{s.short}</span>
                   </span>
                   <ArrowRight className="size-4 shrink-0 text-muted-foreground transition-all group-hover:translate-x-1 group-hover:text-primary" />
                 </Link>
@@ -152,6 +152,25 @@ function WikiPage() {
                 </Link>
               </li>
             ))}
+            <li className="reveal xl:col-span-1">
+              <a
+                href={SERVER_INFO.discordUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="group flex h-full flex-col justify-between rounded-xl border border-dashed border-primary/40 bg-primary/[0.04] p-5 transition-colors hover:bg-primary/[0.09]"
+              >
+                <span className="flex items-center justify-between">
+                  <span className="grid size-10 place-items-center rounded-lg bg-primary/10 text-primary ring-1 ring-primary/25">
+                    <MessageCircleQuestion className="size-5" />
+                  </span>
+                </span>
+                <span className="mt-4 flex items-center gap-2 font-display text-2xl tracking-wide">
+                  Nu găsești?
+                  <ArrowRight className="size-4 text-primary opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100" />
+                </span>
+                <span className="mt-1 text-sm text-muted-foreground">Scrie-ne pe Discord și îți răspundem.</span>
+              </a>
+            </li>
           </ul>
         </section>
       </WikiLayout>

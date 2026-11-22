@@ -129,6 +129,11 @@
   color: var(--primary);
 }
 
+@utility text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px oklch(from var(--foreground) l c h / 22%);
+}
+
 @utility bg-fire {
   background-color: var(--primary);
 }

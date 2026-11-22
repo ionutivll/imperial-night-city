@@ -23,7 +23,7 @@ function Tile({ char, secret, glitching, i = 0 }: { char: string; secret?: boole
 }
 
 function Dot() {
-  return <span className="self-end pb-1 font-display text-3xl text-pink sm:mx-0.5 sm:pb-2 sm:text-4xl md:text-5xl">.</span>;
+  return <span className="self-end pb-1 font-display text-3xl text-primary sm:mx-0.5 sm:pb-2 sm:text-4xl md:text-5xl">.</span>;
 }
 
 export function LaunchDate({ className }: { className?: string }) {

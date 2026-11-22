@@ -52,7 +52,6 @@ export function About() {
           className="reveal liquid-glass relative overflow-hidden rounded-2xl bg-card/35 p-6 md:p-9"
           style={{ "--delay": "160ms" } as CSSProperties}
         >
-          <div className="pointer-events-none absolute -right-20 -top-20 size-56 rounded-full bg-pink/15 blur-3xl" />
           <div className="relative flex items-center justify-between border-b border-border pb-5">
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground">Ce contează la noi</p>
             <span className="font-display text-2xl text-vice">01—03</span>

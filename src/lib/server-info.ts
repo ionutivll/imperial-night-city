@@ -6,4 +6,5 @@ export const SERVER_INFO = {
   connectAddress: "connect play.imperialromania.ro",
   fivemUrl: "fivem://connect/play.imperialromania.ro",
   discordUrl: "https://discord.gg/Mtn2SksTGy",
+  shopUrl: "https://tebex.io/",
 };

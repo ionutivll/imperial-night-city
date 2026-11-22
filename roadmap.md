@@ -12,5 +12,7 @@
 - [x] Illusion-inspired Wiki layout with sidebar, search and chapter navigation
 - [ ] Full regulament text (waiting on the staff to send it)
 - [ ] Wiki content per category (waiting on details from the user)
-- [ ] Shop items and prices (waiting on details from the user)
-- [ ] Optional scroll-controlled teaser video (not requested for implementation yet)
+- [ ] Scroll-controlled teaser video on the homepage
+- [ ] Separate keyboard controls and RP commands guide
+- [ ] Homepage visual and performance polish
+- [ ] Replace the internal Shop with an external Tebex link
